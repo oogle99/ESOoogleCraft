@@ -1,0 +1,19 @@
+## Title: Oogle Craft
+## APIVersion: 101040
+
+## Author: OOGLE
+## Description: Please Work
+
+## AddOnVersion: 1
+## IsLibrary: False
+## SavedVariables: OogleCraftSavedVariables
+
+OogleCraftUI.xml
+
+OogleCraftHideAll.lua
+
+OogleCraftMiscDropUI.lua
+OogleCraftArmorDropUI.lua
+OogleCraftJewelDropUI.lua
+OogleCraftWeaponDropUI.lua
+OogleCraft.lua
