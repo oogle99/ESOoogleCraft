@@ -25,6 +25,23 @@ local function createDropdown(frameName, choices, xOffset, yOffset, dropWide)
     end
 end
 
+local buttonWM = WINDOW_MANAGER
+
+local function createButton(buttonFrameName, buttonxOffset, buttonyOffset, buttonWide)
+    local buttonFrame = buttonWM:CreateTopLevelWindow("OogleCraft" .. buttonFrameName .. "ButtonWin")
+    buttonFrame:SetAnchor(TOPLEFT)
+    buttonFrame:SetDimensions(125, 50)
+
+    local buttonContainer = buttonWM:CreateControlFromVirtual("OogleCraft" .. buttonFrameName .. "Button", buttonFrame, "AddToQueueButton")
+    buttonContainer:SetAnchor(TOPLEFT, OogleCraftMainPanel, TOPLEFT, buttonxOffset + 7, buttonyOffset) -- y180
+    buttonContainer:GetNamedChild("Button"):SetWidth(buttonWide)
+
+    local button = buttonContainer.button
+end
+
+
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --- Dropdowns ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -297,7 +314,155 @@ local OogleCraftSet3ListChoices = {
     "Willow's Path",
     "Wretched Vitality"
 }
+
+local OogleCraftStyleListChoices = {
+    "[Style]",
+    "Abah's Watch",
+    "Akaviri",
+    "Aldmeri Dominion",
+    "Ancestral Akaviri",
+    "Ancestral Breton",
+    "Ancestral High Elf",
+    "Ancestral Nord",
+    "Ancestral Orc",
+    "Ancestral Reach",
+    "Ancient Daedric",
+    "Ancient Elf",
+    "Ancient Orc",
+    "Anequina",
+    "Annihilarch's Chosen",
+    "Apostle",
+    "Argonian",
+    "Arkthzand Armory",
+    "Ascendant Order",
+    "Ashlander",
+    "Assassins League",
+    "Barbaric",
+    "Black Fin Legion",
+    "Blackreach Vanguard",
+    "Blessed Inheritor",
+    "Bloodforge",
+    "Breton",
+    "Buoyant Armiger",
+    "Celestial",
+    "Clan Dreamcarver",
+    "Coldsnap",
+    "Crimson Oath",
+    "Daedric",
+    "Daggerfall Covenant",
+    "Dark Brotherhood",
+    "Dark Elf",
+    "Dead Keeper",
+    "Dead-Water",
+    "Dragonguard",
+    "Draugr",
+    "Dreadhorn",
+    "Dreadsails",
+    "Dremora",
+    "Dro-m'Athra",
+    "Drowned Mariner",
+    "Dwemer",
+    "Ebonheart Pact",
+    "Ebonshadow",
+    "Ebony",
+    "Elder Argonian",
+    "Fang Lair",
+    "Fargrave Guardian",
+    "Firesong",
+    "Glass",
+    "Greymoor",
+    "Grim Harlequin",
+    "Hazardous Alchemy",
+    "High Elf",
+    "Hlaalu",
+    "Hollowjack",
+    "Honor Guard",
+    "House Hexos",
+    "House Mornard",
+    "Huntsman",
+    "Icereach Coven",
+    "Imperial",
+    "Ivory Brigade",
+    "Khajiit",
+    "Kindred's Concord",
+    "Malacath",
+    "Mazzatun",
+    "Mercenary",
+    "Meridian",
+    "Militant Ordinator",
+    "Minotaur",
+    "Moongrave Fane",
+    "Morag Tong",
+    "New Moon Priest",
+    "Nighthollow",
+    "Nord",
+    "Orcish",
+    "Order of the Hour",
+    "Outlaw",
+    "Pellitine",
+    "Primal",
+    "Psijic",
+    "Pyandonean",
+    "Pyre Watch",
+    "Ra Gada",
+    "Redguard",
+    "Redoran",
+    "Refabricated",
+    "Sapiarch",
+    "Scalecaller",
+    "Scribes of Mora",
+    "Sea Giant",
+    "Shield of Senchal",
+    "Silken Ring",
+    "Silver Dawn",
+    "Silver Rose",
+    "Skinchanger",
+    "Soul-Shriven",
+    "Stags of Z'en",
+    "Stalhrim Frostcaster",
+    "Steadfast Society",
+    "Sul-Xan",
+    "Sunspire",
+    "Syrbanic Marine",
+    "Systres Guardian",
+    "Telvanni",
+    "Thieves Guild",
+    "Thorn Legion",
+    "Trinimac",
+    "True-Sworn",
+    "Tsaesci",
+    "Waking Flame",
+    "Wayward Guardian",
+    "Welkynar",
+    "Wood Elf",
+    "Worm Cult",
+    "Xivkyn",
+    "Y'ffre's Will",
+    "Yokudan"
+}
+
 createDropdown("Lvl", OogleCraftLvlChoices, 0, 80, 125)
 createDropdown("Set1List", OogleCraftSet1ListChoices, 125, 80, 250)
 createDropdown("Set2List", OogleCraftSet2ListChoices, 375, 80, 250)
 createDropdown("Set3List", OogleCraftSet3ListChoices, 625, 80, 250)
+createDropdown("StyleList", OogleCraftStyleListChoices, 875, 80, 250)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--- Buttons ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+createButton("ShieldQueue", 0, 480, 125)
+createButton("ChestQueue", 125, 480, 125)
+createButton("FeetQueue", 250, 480, 125)
+createButton("HandsQueue", 375, 480, 125)
+createButton("LegsQueue", 500, 480, 125)
+createButton("WaistQueue", 625, 480, 125)
+createButton("HeadQueue", 750, 480, 125)
+createButton("ShouldersQueue", 875, 480, 125)
+createButton("Ring1Queue", 1000, 480, 125)
+createButton("Ring2Queue", 1125, 480, 125)
+createButton("NecklaceQueue", 1250, 480, 125)
+createButton("FrontBar1Queue", 1375, 480, 125)
+createButton("FrontBar2Queue", 1500, 480, 125)
+createButton("BackBar1Queue", 1625, 480, 125)
+createButton("BackBar2Queue", 1750, 480, 125)
