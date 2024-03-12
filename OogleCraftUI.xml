@@ -6,7 +6,7 @@
             <Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="TOPLEFT" offsetX="20" offsetY="-20"/>
 
             <OnMouseDown>
-				OogleCraftHideAll.toggleWindow()
+				OogleCraft.toggleWindow()
 			</OnMouseDown>
 
             <Controls>
@@ -269,20 +269,12 @@
         
         <Control name="AddToQueueButton" virtual="true">
             <Dimensions x="200" y="28" />
-
-            <!--
-            <OnInitialized>
-                self.name = self:GetNamedChild("Name")
-                self.button = ZO_DefaultButton_ObjectFromContainer(self:GetNamedChild("Button"))
-            </OnInitialized>
-            -->
+            
                 <Controls>
-                   <!-- Label name="$(parent)Name" inherits="ZO_StatsRowName"/> -->
-
                     <Button name="$(parent)Button" text="Add to Queue" inherits="ZO_DefaultButton">
                         <Dimensions x="250"/>
                         <Anchor point="LEFT"/>
-                    </Button>
+                    </Button>  
                 </Controls>
         </Control>
         
