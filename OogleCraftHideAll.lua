@@ -1,7 +1,7 @@
-OogleCraftHideAll = {}
+OogleCraft = OogleCraft or {}
 
 local windowIsHidden = false
-function OogleCraftHideAll.toggleWindow()
+function OogleCraft.toggleWindow()
     if windowIsHidden == false then
         windowIsHidden = true
 
@@ -124,6 +124,7 @@ function OogleCraftHideAll.toggleWindow()
             OogleCraftSet1ListDropWin,
             OogleCraftSet2ListDropWin,
             OogleCraftSet3ListDropWin,
+            OogleCraftStyleListDropWin,
 
             OogleCraftShieldQueueButtonWin,
             OogleCraftChestQueueButtonWin,
