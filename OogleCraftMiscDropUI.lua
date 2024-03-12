@@ -1,5 +1,6 @@
-OogleCraft = {}
+OogleCraft = OogleCraft or {}
 OogleCraft.name = "OogleCraft"
+
 
 local wm = WINDOW_MANAGER  --just an upvalue
 
@@ -16,7 +17,7 @@ local function createDropdown(frameName, choices, xOffset, yOffset, dropWide)
     dropdown:SetSelectedItem(choices[1])
 
     local function OnItemSelect(_, choiceText, choice)
-        d(choiceText)
+        d(frameName, choiceText)
     end
 
     for i=1,#choices do
@@ -36,9 +37,14 @@ local function createButton(buttonFrameName, buttonxOffset, buttonyOffset, butto
     buttonContainer:SetAnchor(TOPLEFT, OogleCraftMainPanel, TOPLEFT, buttonxOffset + 7, buttonyOffset) -- y180
     buttonContainer:GetNamedChild("Button"):SetWidth(buttonWide)
 
-    local button = buttonContainer.button
+    buttonContainer:GetNamedChild("Button"):SetHandler("OnClicked", function()
+        OogleCraft.addToQueue(buttonFrameName)
+    end)
 end
 
+function OogleCraft.addToQueue(buttonFrameName)
+    d(buttonFrameName)
+end
 
 
 
