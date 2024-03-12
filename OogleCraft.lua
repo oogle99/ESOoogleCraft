@@ -1,4 +1,4 @@
-OogleCraft = {}
+OogleCraft = OogleCraft or {}
 OogleCraft.name = "OogleCraft"
 
 function OogleCraft.RestorePosition()
@@ -20,7 +20,5 @@ function OogleCraft.OnAddOnLoaded(event, addonName)
 end
 
 
+
 EVENT_MANAGER:RegisterForEvent(OogleCraft.name, EVENT_ADD_ON_LOADED, OogleCraft.OnAddOnLoaded)
-
-
-
