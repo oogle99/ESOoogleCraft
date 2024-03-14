@@ -4,20 +4,19 @@ OogleCraft.name = "OogleCraft"
 
 local wm = WINDOW_MANAGER  --just an upvalue
 
-local function createDropdown(frameName, choices, xOffset, yOffset, dropWide)
-    local frame = wm:CreateTopLevelWindow("OogleCraft" .. frameName .. "DropWin")
-    frame:SetAnchor(TOPLEFT)
-    frame:SetDimensions(125, 50)
-
-    local dropdownContainer = wm:CreateControlFromVirtual("OogleCraft" .. frameName .. "Drop", frame, "ScrollCombobox")
-    dropdownContainer:SetAnchor(TOPLEFT, OogleCraftMainPanel, TOPLEFT, xOffset + 7, yOffset) -- y180
+local function createDropdown(oogleCraftDropdownFrameName, choices, xOffset, yOffset, dropWide)
+    local dropdownContainer = wm:CreateControlFromVirtual("OogleCraft" .. oogleCraftDropdownFrameName .. "Drop", OogleCraftMainPanel, "ScrollCombobox")
+    dropdownContainer:SetAnchor(TOPLEFT, OogleCraftMainPanel, TOPLEFT, xOffset + 7, yOffset)
+    dropdownContainer:SetDimensions(125, 50)
     dropdownContainer:GetNamedChild("Dropdown"):SetWidth(dropWide)
 
     local dropdown = dropdownContainer.dropdown
     dropdown:SetSelectedItem(choices[1])
 
+    dropdown:SetSortsItems(false)
+
     local function OnItemSelect(_, choiceText, choice)
-        d(frameName, choiceText)
+        OogleCraft.onItemSelectFunctionality(oogleCraftDropdownFrameName, choiceText)
     end
 
     for i=1,#choices do
@@ -28,22 +27,19 @@ end
 
 local buttonWM = WINDOW_MANAGER
 
-local function createButton(buttonFrameName, buttonxOffset, buttonyOffset, buttonWide)
-    local buttonFrame = buttonWM:CreateTopLevelWindow("OogleCraft" .. buttonFrameName .. "ButtonWin")
-    buttonFrame:SetAnchor(TOPLEFT)
-    buttonFrame:SetDimensions(125, 50)
-
-    local buttonContainer = buttonWM:CreateControlFromVirtual("OogleCraft" .. buttonFrameName .. "Button", buttonFrame, "AddToQueueButton")
-    buttonContainer:SetAnchor(TOPLEFT, OogleCraftMainPanel, TOPLEFT, buttonxOffset + 7, buttonyOffset) -- y180
+local function createButton(oogleCraftButtonFrameName, buttonxOffset, buttonyOffset, buttonWide)
+    local buttonContainer = wm:CreateControlFromVirtual("OogleCraft" .. oogleCraftButtonFrameName .. "Button", OogleCraftMainPanel, "AddToQueueButton")
+    buttonContainer:SetAnchor(TOPLEFT, OogleCraftMainPanel, TOPLEFT, buttonxOffset + 7, buttonyOffset)
+    buttonContainer:SetDimensions(125, 50)
     buttonContainer:GetNamedChild("Button"):SetWidth(buttonWide)
 
     buttonContainer:GetNamedChild("Button"):SetHandler("OnClicked", function()
-        OogleCraft.addToQueue(buttonFrameName)
+        OogleCraft.addToQueue(oogleCraftButtonFrameName)
     end)
 end
 
-function OogleCraft.addToQueue(buttonFrameName)
-    d(buttonFrameName)
+function OogleCraft.addToQueue(oogleCraftButtonFrameName)
+    OogleCraft.addToQueueFunctionality(oogleCraftButtonFrameName)
 end
 
 
@@ -53,7 +49,7 @@ end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 local OogleCraftLvlChoices = {
-    "Level",
+    "[Level]",
     "Research",
     "10",
     "20",
@@ -447,28 +443,28 @@ local OogleCraftStyleListChoices = {
     "Yokudan"
 }
 
-createDropdown("Lvl", OogleCraftLvlChoices, 0, 80, 125)
-createDropdown("Set1List", OogleCraftSet1ListChoices, 125, 80, 250)
-createDropdown("Set2List", OogleCraftSet2ListChoices, 375, 80, 250)
-createDropdown("Set3List", OogleCraftSet3ListChoices, 625, 80, 250)
-createDropdown("StyleList", OogleCraftStyleListChoices, 875, 80, 250)
+createDropdown("Lvl", OogleCraftLvlChoices, 0, 70, 125)
+createDropdown("Set1List", OogleCraftSet1ListChoices, 125, 70, 250)
+createDropdown("Set2List", OogleCraftSet2ListChoices, 375, 70, 250)
+createDropdown("Set3List", OogleCraftSet3ListChoices, 625, 70, 250)
+createDropdown("StyleList", OogleCraftStyleListChoices, 875, 70, 250)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --- Buttons ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-createButton("ShieldQueue", 0, 480, 125)
-createButton("ChestQueue", 125, 480, 125)
-createButton("FeetQueue", 250, 480, 125)
-createButton("HandsQueue", 375, 480, 125)
-createButton("LegsQueue", 500, 480, 125)
-createButton("WaistQueue", 625, 480, 125)
-createButton("HeadQueue", 750, 480, 125)
-createButton("ShouldersQueue", 875, 480, 125)
-createButton("Ring1Queue", 1000, 480, 125)
-createButton("Ring2Queue", 1125, 480, 125)
-createButton("NecklaceQueue", 1250, 480, 125)
-createButton("FrontBar1Queue", 1375, 480, 125)
-createButton("FrontBar2Queue", 1500, 480, 125)
-createButton("BackBar1Queue", 1625, 480, 125)
-createButton("BackBar2Queue", 1750, 480, 125)
+createButton("ShieldQueue", 0, 470, 125)
+createButton("ChestQueue", 125, 470, 125)
+createButton("FeetQueue", 250, 470, 125)
+createButton("HandsQueue", 375, 470, 125)
+createButton("LegsQueue", 500, 470, 125)
+createButton("WaistQueue", 625, 470, 125)
+createButton("HeadQueue", 750, 470, 125)
+createButton("ShouldersQueue", 865, 470, 125)
+createButton("Ring1Queue", 1000, 470, 125)
+createButton("Ring2Queue", 1125, 470, 125)
+createButton("NecklaceQueue", 1250, 470, 125)
+createButton("FrontBar1Queue", 1375, 470, 125)
+createButton("FrontBar2Queue", 1500, 470, 125)
+createButton("BackBar1Queue", 1625, 470, 125)
+createButton("BackBar2Queue", 1750, 470, 125)
