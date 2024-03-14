@@ -37,7 +37,7 @@
                         
                         <Label name="$(parent)MainLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="OOGLE's Lazy Crafter!">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="2" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="7" />
                         </Label>
 
                         <Texture name="$(parent)MainUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -49,7 +49,7 @@
 
                         <Label name="$(parent)StartingLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="Start Here!">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="50" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="55" />
                         </Label>
 
                         <Texture name="$(parent)StartingUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -61,7 +61,7 @@
                         
                         <Label name="$(parent)ArmorSetLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="Armor Set">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="125" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="130" />
                         </Label>
 
                         <Texture name="$(parent)ArmorSetUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -71,7 +71,7 @@
 
                         <Label name="$(parent)ArmorWeightLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="Armor Weight">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="225" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="230" />
                         </Label>
 
                         <Texture name="$(parent)ArmorWeightUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -81,7 +81,7 @@
 
                         <Label name="$(parent)ArmorTraitLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="Armor Trait">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="300" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="305" />
                         </Label>
 
                         <Texture name="$(parent)ArmorTraitUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -91,7 +91,7 @@
 
                         <Label name="$(parent)ArmorEnchantLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="Armor Enchant">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="375" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="380" />
                         </Label>
 
                         <Texture name="$(parent)ArmorEnchantUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -103,7 +103,7 @@
 
                         <Label name="$(parent)JewelrySetLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="Jewelry Set">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1007" offsetY="125" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1007" offsetY="130" />
                         </Label>
 
                         <Texture name="$(parent)JewelrySetUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -113,7 +113,7 @@
 
                         <Label name="$(parent)JewelryTraitLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="Jewelry Trait">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1007" offsetY="300" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1007" offsetY="305" />
                         </Label>
 
                         <Texture name="$(parent)JewelryTraitUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -123,7 +123,7 @@
 
                         <Label name="$(parent)JewelryEnchantLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="Jewelry Enchant">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1007" offsetY="375" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1007" offsetY="380" />
                         </Label>
 
                         <Texture name="$(parent)JewelryEnchantUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -135,7 +135,7 @@
 
                         <Label name="$(parent)WeaponSetLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="Weapon Set">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="125" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="130" />
                         </Label>
 
                         <Texture name="$(parent)WeaponSetUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -143,9 +143,9 @@
                             <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="1380" offsetY="150" />
                         </Texture>
 
-                        <Label name="$(parent)WeaponWeightLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Weapon Weight">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="225" />
+                        <Label name="$(parent)WeaponTypeLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
+                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Weapon Type">
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="230" />
                         </Label>
 
                         <Texture name="$(parent)WeaponWeightUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -155,7 +155,7 @@
 
                         <Label name="$(parent)WeaponTraitLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="Weapon Trait">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="300" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="305" />
                         </Label>
 
                         <Texture name="$(parent)WeaponTraitUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
@@ -165,7 +165,7 @@
 
                         <Label name="$(parent)WeaponEnchantLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
                           verticalAlignment="TOP" horizontalAlignment="CENTER" text="Weapon Enchant">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="375" />
+                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="380" />
                         </Label>
 
                         <Texture name="$(parent)WeaponEnchantUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
