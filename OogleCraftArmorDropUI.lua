@@ -1,6 +1,8 @@
 OogleCraft = OogleCraft or {}
 OogleCraft.name = "OogleCraft"
 
+_G.selectedItems = _G.selectedItems or {}
+
 local wm = WINDOW_MANAGER
 
 local function createDropdown(oogleCraftDropdownFrameName, choices, xOffset, yOffset, dropWide)
@@ -15,7 +17,21 @@ local function createDropdown(oogleCraftDropdownFrameName, choices, xOffset, yOf
     dropdown:SetSortsItems(false)
 
     local function OnItemSelect(_, choiceText, choice)
-        OogleCraft.onItemSelectFunctionality(oogleCraftDropdownFrameName, choiceText)
+    
+    -- Check if the table for the current dropdown frame exists, if not, create it
+    _G.selectedItems[oogleCraftDropdownFrameName] = _G.selectedItems[oogleCraftDropdownFrameName] or {}
+    
+    -- Check if the selected item does not already exists for the current dropdown frame
+    for i, item in ipairs(_G.selectedItems[oogleCraftDropdownFrameName]) do
+        if item ~= choiceText then
+            -- Remove the existing item from the table
+            table.remove(_G.selectedItems[oogleCraftDropdownFrameName], i)
+            break -- Exit the loop once the item is removed
+        end
+    end
+    
+    -- Store the selected item in the table corresponding to the current dropdown frame
+    table.insert(_G.selectedItems[oogleCraftDropdownFrameName], choiceText)
     end
 
     for i=1,#choices do
