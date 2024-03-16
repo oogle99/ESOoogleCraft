@@ -18,7 +18,6 @@ OogleCraftUI.xml
 
 OogleCraftHideAll.lua
 
-OogleCraftConstantTables.lua
 OogleCraftMiscDropUI.lua
 OogleCraftArmorDropUI.lua
 OogleCraftJewelDropUI.lua
