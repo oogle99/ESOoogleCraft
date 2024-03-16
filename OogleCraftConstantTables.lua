@@ -1,3 +1,4 @@
+--[[
 OogleCraft = OogleCraft or {}
 OogleCraft.name = "OogleCraft"
 
@@ -341,12 +342,12 @@ local weaponEnchantNameChoices = {
 }
 
 local setQualityChoices = {
-    ["White"] = "",
-    ["Green"] = "",
-    ["Blue"] = "",
-    ["Purple"] = "",
-    ["Yellow"] = "",
-    ["Orange"] = ""
+    "White",
+    "Green",
+    "Blue",
+    "Purple",
+    "Yellow",
+    "Orange"
 }
 
 OogleCraftConstantDropdownChoices = {
@@ -418,3 +419,4 @@ OogleCraftConstantDropdownChoices = {
     ["EnchantBackBar1"] = weaponEnchantNameChoices,
     ["EnchantBackBar2"] = weaponEnchantNameChoices,
 }
+--]]
