@@ -22,14 +22,14 @@
 
         </TopLevelControl>
 
-        <TopLevelControl name="OogleCraftMainPanel" mouseEnabled="false" movable="false" clampedToScreen="true" hidden="false">
-            <Dimensions x="1889" y="650"/>
-            <Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="TOPLEFT" offsetX="180" offsetY="115"/>
-                                    
+        <TopLevelControl name="OogleCraftMainPanel" mouseEnabled="true" movable="true" clampedToScreen="true" hidden="false">
+            <Dimensions x="1214" y="550"/>
+            <Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="TOPLEFT" offsetX="0" offsetY="0"/>
+            
+            <OnMoveStop>
+                OogleCraft.OnWindowMoveStop()
+            </OnMoveStop>
             <Controls>
-
-                
-
                 <Control name="$(parent)MainWindow" mouseEnabled="false" movable="false" clampedToScreen="true">
                     <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="2" offsetY="-2"/>
                     <Anchor point="BOTTOMRIGHT" relativeTo="$(parent)" relativePoint="BOTTOMRIGHT" offsetX="2" offsetY="-2"/>
@@ -47,147 +47,254 @@
 
                         <!--____________________________________________________________________________________________________________________________-->
 
-                        <Label name="$(parent)StartingLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Start Here!">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="55" />
-                        </Label>
+                        
+                    </Controls>
+                </Control>
 
-                        <Texture name="$(parent)StartingUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="5" offsetY="75" />
+                <Control name="$(parent)ShieldDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_offHand.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
                         </Texture>
                         
-                        <!--____________________________________________________________________________________________________________________________-->
-                        
-                        <Label name="$(parent)ArmorSetLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Armor Set">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="130" />
-                        </Label>
-
-                        <Texture name="$(parent)ArmorSetUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="5" offsetY="150" />
-                        </Texture>
-
-                        <Label name="$(parent)ArmorWeightLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Armor Weight">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="230" />
-                        </Label>
-
-                        <Texture name="$(parent)ArmorWeightUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="5" offsetY="250" />
-                        </Texture>
-
-                        <Label name="$(parent)ArmorTraitLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Armor Trait">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="305" />
-                        </Label>
-
-                        <Texture name="$(parent)ArmorTraitUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="5" offsetY="325" />
-                        </Texture>
-
-                        <Label name="$(parent)ArmorEnchantLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Armor Enchant">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="380" />
-                        </Label>
-
-                        <Texture name="$(parent)ArmorEnchantUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="5" offsetY="400" />
-                        </Texture>
-
-                        <!--____________________________________________________________________________________________________________________________-->
-
-                        <Label name="$(parent)JewelrySetLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Jewelry Set">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1007" offsetY="130" />
-                        </Label>
-
-                        <Texture name="$(parent)JewelrySetUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="1005" offsetY="150" />
-                        </Texture>
-
-                        <Label name="$(parent)JewelryTraitLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Jewelry Trait">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1007" offsetY="305" />
-                        </Label>
-
-                        <Texture name="$(parent)JewelryTraitUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="1005" offsetY="325" />
-                        </Texture>
-
-                        <Label name="$(parent)JewelryEnchantLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Jewelry Enchant">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1007" offsetY="380" />
-                        </Label>
-
-                        <Texture name="$(parent)JewelryEnchantUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="1005" offsetY="400" />
-                        </Texture>
-
-                        <!--____________________________________________________________________________________________________________________________-->
-
-                        <Label name="$(parent)WeaponSetLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Weapon Set">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="130" />
-                        </Label>
-
-                        <Texture name="$(parent)WeaponSetUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="1380" offsetY="150" />
-                        </Texture>
-
-                        <Label name="$(parent)WeaponTypeLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Weapon Type">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="230" />
-                        </Label>
-
-                        <Texture name="$(parent)WeaponWeightUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="1380" offsetY="250" />
-                        </Texture>
-
-                        <Label name="$(parent)WeaponTraitLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Weapon Trait">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="305" />
-                        </Label>
-
-                        <Texture name="$(parent)WeaponTraitUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="1380" offsetY="325" />
-                        </Texture>
-
-                        <Label name="$(parent)WeaponEnchantLabel" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
-                          verticalAlignment="TOP" horizontalAlignment="CENTER" text="Weapon Enchant">
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1382" offsetY="380" />
-                        </Label>
-
-                        <Texture name="$(parent)WeaponEnchantUnderscore" textureFile="esoui\art\deathrecap\deathrecap_divider_right.dds" tier="HIGH">
-                            <Dimensions x="340" y="4"/>
-                            <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="1380" offsetY="400" />
-                        </Texture>
-
-                        <!--____________________________________________________________________________________________________________________________-->
-
-                        <Backdrop name="$(parent)MainBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
                             <AnchorFill/>
                         </Backdrop>
+                    </Controls>
+                </Control>
 
+                <Control name="$(parent)ChestDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="87" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_chest.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
                         
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
 
+                <Control name="$(parent)FeetDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="167" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_feet.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)HandsDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="247" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_hands.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)LegsDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="327" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_legs.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)WaistDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="407" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_belt.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)HeadDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="487" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_head.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)ShouldersDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="567" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_shoulders.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)Ring1Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="647" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_ring.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)Ring2Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="727" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_ring.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)NecklaceDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="807" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_neck.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)FB1Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="887" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/Dye/outfitSlot_mainHand.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)FB2Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="967" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/Dye/outfitSlot_offHand.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)BB1Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1047" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/Dye/outfitSlot_mainHand.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
+                    </Controls>
+                </Control>
+
+                <Control name="$(parent)BB2Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1127" offsetY="115"/>
+                    <Dimensions x="80" y="345"/>
+
+                    <Controls>
+                        <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/Dye/outfitSlot_offHand.dds" tier="HIGH">
+                            <Dimensions x="40" y="40"/>
+                            <Anchor point="TOP" relativeTo="$(parent)" offsetY="0" />
+                        </Texture>
+                        
+                        <Backdrop name="$(parent)DividerBG" inherits="ZO_DefaultBackdrop" alpha="1">
+                            <AnchorFill/>
+                        </Backdrop>
                     </Controls>
                 </Control>
 
                 <Control name="$(parent)QueueWindow" mouseEnabled="false" movable="false" clampedToScreen="true">
                     <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="BOTTOMLEFT" offsetX="0" offsetY="0"/>
                     
-                    <Dimensions x="944.5" y="600"/>
+                    <Dimensions x="607" y="600"/>
                     <Controls>
                         
                         <Label name="$(parent)Label" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
@@ -214,7 +321,7 @@
                 <Control name="$(parent)ReqItemWindow" mouseEnabled="false" movable="false" clampedToScreen="true">
                     <Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="BOTTOMRIGHT" offsetX="0" offsetY="0"/>
                     
-                    <Dimensions x="944.5" y="600"/>
+                    <Dimensions x="607" y="600"/>
                     <Controls>
                         
                         <Label name="$(parent)Label" font="ZoFontKeyboard18ThickOutline" inheritAlpha="true" color="FFFFFF"
@@ -240,6 +347,9 @@
                 </Control>
 
                 <Backdrop name="$(parent)Backdrop" inherits="ZO_DefaultBackdrop">
+                    <AnchorFill/>
+                </Backdrop>
+                <Backdrop name="$(parent)DarkerBackdrop" inherits="ZO_DefaultBackdrop">
                     <AnchorFill/>
                 </Backdrop>
 
@@ -271,7 +381,7 @@
             <Dimensions x="200" y="28" />
             
                 <Controls>
-                    <Button name="$(parent)Button" text="Add to Queue" inherits="ZO_DefaultButton">
+                    <Button name="$(parent)Button" text="Add" inherits="ZO_DefaultButton">
                         <Dimensions x="250"/>
                         <Anchor point="LEFT"/>
                     </Button>  
