@@ -1,11 +1,5 @@
-; This Add-on is not created by, affiliated with or sponsored by ZeniMax
-; Media Inc. or its affiliates. The Elder Scrolls® and related logos are
-; registered trademarks or trademarks of ZeniMax Media Inc. in the United
-; States and/or other countries. All rights reserved.
-; You can read the full terms at https://account.elderscrollsonline.com/add-on-terms
-
 ## Title: Oogle Craft
-## APIVersion: 101040
+## APIVersion: 101041
 
 ## Author: OOGLE
 ## Description: Please Work
@@ -14,12 +8,17 @@
 ## IsLibrary: False
 ## SavedVariables: OogleCraftSavedVariables
 
+
 OogleCraftUI.xml
 
 OogleCraftHideAll.lua
+
 
 OogleCraftMiscDropUI.lua
 OogleCraftArmorDropUI.lua
 OogleCraftJewelDropUI.lua
 OogleCraftWeaponDropUI.lua
+
+bindings.xml
+
 OogleCraft.lua
