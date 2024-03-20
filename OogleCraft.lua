@@ -4,15 +4,23 @@ OogleCraft.name = "OogleCraft"
 _G.selectedItems = _G.selectedItems or {}
 
 function OogleCraft.RestorePosition()
+    local left = OogleCraft.savedVariables.left
+    local top = OogleCraft.savedVariables.top
+
+    OogleCraftMainPanel:ClearAnchors()
     OogleCraftMainPanel:SetAnchor(TOPLEFT, GuiRoot, TOPLEFT, left, top)
 end
 
 function OogleCraft.Initialize()
-
+    
+    ZO_CreateStringId("SI_BINDING_NAME_OogleCraftHideAll", "|cEECA2AHide All|r")
+    OogleCraft.RestorePosition()
 end
 
 function OogleCraft.OnAddOnLoaded(event, addonName)
     if addonName == OogleCraft.name then
+        OogleCraft.savedVariables = ZO_SavedVars:NewCharacterIdSettings("OogleCraftSavedVariables", 1, nil, {})
+
         OogleCraft.Initialize()
 
         EVENT_MANAGER:UnregisterForEvent(OogleCraft.name, EVENT_ADD_ON_LOADED)
@@ -21,9 +29,31 @@ end
 
 EVENT_MANAGER:RegisterForEvent(OogleCraft.name, EVENT_ADD_ON_LOADED, OogleCraft.OnAddOnLoaded)
 
+function OogleCraft.OnWindowMoveStop()
+    OogleCraft.savedVariables.left = OogleCraftMainPanel:GetLeft()
+    OogleCraft.savedVariables.top = OogleCraftMainPanel:GetTop()
+end
+
+function OogleCraft.ClearSavedVariables()
+    OogleCraft.savedVariables = {}
+    d("Saved variables cleared.")
+end
+
+function OogleCraft.createClearButton(oogleCraftClearButtonFrameName, buttonxOffset, buttonyOffset, buttonWide)
+    local buttonContainer = WINDOW_MANAGER:CreateControlFromVirtual("OogleCraft" .. oogleCraftClearButtonFrameName .. "Button", OogleCraftMainPanel, "AddToQueueButton")
+    buttonContainer:SetAnchor(TOPLEFT, OogleCraftMainPanel, TOPLEFT, buttonxOffset + 7, buttonyOffset)
+    buttonContainer:SetDimensions(125, 50)
+    buttonContainer:GetNamedChild("Button"):SetWidth(buttonWide)
+
+    buttonContainer:GetNamedChild("Button"):SetHandler("OnClicked", function()
+        OogleCraft.ClearSavedVariables()
+    end)
+end
+
+OogleCraft.createClearButton("ClearEverything", 0, 40, 80)
 
 function OogleCraft.addToQueueFunctionality(oogleCraftButtonFrameName)
-    d(oogleCraftButtonFrameName)
+    
     
     -- Define a map of queue types and their corresponding tables
     local queueTypes = {
@@ -201,6 +231,30 @@ function OogleCraft.addToQueueFunctionality(oogleCraftButtonFrameName)
             table.insert(tables, setListTable)
         end
 
+        local nextMessageY = 0  -- Keep track of the next message's vertical position
+
+        function ShowMessageOnGUI(message, color)
+            -- Create a label or other UI element
+            local label = WINDOW_MANAGER:CreateControl(nil, OogleCraftMainPanel, CT_LABEL)
+            label:SetText(message)
+            label:SetAnchor(TOPLEFT, OogleCraftMainPanel, BOTTOMLEFT, 607 + 7, nextMessageY + 3.5)
+            label:SetFont("ZoFontGame")
+            
+            -- Set text color
+            if color then
+                label:SetColor(color[1] or 1, color[2] or 1, color[3] or 1, color[4] or 1)
+            else
+                label:SetColor(1, 1, 0, 1)  -- Default to yellow
+            end
+            
+            label:SetDrawLayer(1)
+            
+            -- Update the next message's vertical position for the next message
+            nextMessageY = nextMessageY + label:GetHeight() + 2.5  -- Adjust spacing between messages
+            
+            -- Schedule a function to remove the label after a few seconds
+            zo_callLater(function() label:SetHidden(true) end, 3000)  -- Hide the label after 3 seconds (3000 milliseconds)
+        end
 
         for _, tableKey in ipairs(tables) do
             local selectedItems = _G.selectedItems[tableKey] or {}
@@ -211,7 +265,10 @@ function OogleCraft.addToQueueFunctionality(oogleCraftButtonFrameName)
                     d(item)
                 end
             else
-                d(message)
+                --d(message)
+                -- Display message on the GUI
+                ShowMessageOnGUI(oogleCraftButtonFrameName, {1, 0, 0, 1})
+                ShowMessageOnGUI(message)
             end
         end
     end
