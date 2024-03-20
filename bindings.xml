@@ -1,0 +1,13 @@
+<!-- To get the XML to load properly, exit out of game and reload client -->
+<Bindings>
+	<Layer name="SI_KEYBINDINGS_LAYER_GENERAL">
+		<Category name="|cEECA2AOogleCraft|r">
+		<!-- The category heading that will appear in the binding list -->
+			<Action name="OogleCraftHideAll">
+			<!-- This is the name we assigned in the main lua file
+			ZO_CreateStringId("SI_BINDING_NAME_EAGLE" . . . -->
+				<Down>OogleCraft.toggleWindow()</Down>
+			</Action>
+		</Category>
+	</Layer>
+</Bindings>
