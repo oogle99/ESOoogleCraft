@@ -24,7 +24,7 @@ local function createDropdown(oogleCraftDropdownFrameName, choices, xOffset, yOf
         
         -- Check if the selected item does not already exists for the current dropdown frame
         for i, item in ipairs(_G.selectedItems[oogleCraftDropdownFrameName]) do
-            if item ~= choiceText then
+            if item ~= choiceText or item == choiceText then
                 -- Remove the existing item from the table
                 table.remove(_G.selectedItems[oogleCraftDropdownFrameName], i)
                 break -- Exit the loop once the item is removed
@@ -464,28 +464,28 @@ local OogleCraftStyleListChoices = {
     "Yokudan"
 }
 
-createDropdown("Lvl", OogleCraftLvlChoices, 0, 70, 125)
-createDropdown("Set1List", OogleCraftSet1ListChoices, 125, 70, 250)
-createDropdown("Set2List", OogleCraftSet2ListChoices, 375, 70, 250)
-createDropdown("Set3List", OogleCraftSet3ListChoices, 625, 70, 250)
-createDropdown("StyleList", OogleCraftStyleListChoices, 875, 70, 250)
+createDropdown("Lvl", OogleCraftLvlChoices, 0, 70, 160)
+createDropdown("Set1List", OogleCraftSet1ListChoices, 160, 70, 240)
+createDropdown("Set2List", OogleCraftSet2ListChoices, 400, 70, 240)
+createDropdown("Set3List", OogleCraftSet3ListChoices, 640, 70, 240)
+createDropdown("StyleList", OogleCraftStyleListChoices, 880, 70, 320)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --- Buttons ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-createButton("ShieldQueue", 0, 470, 125)
-createButton("ChestQueue", 125, 470, 125)
-createButton("FeetQueue", 250, 470, 125)
-createButton("HandsQueue", 375, 470, 125)
-createButton("LegsQueue", 500, 470, 125)
-createButton("WaistQueue", 625, 470, 125)
-createButton("HeadQueue", 750, 470, 125)
-createButton("ShouldersQueue", 865, 470, 125)
-createButton("Ring1Queue", 1000, 470, 125)
-createButton("Ring2Queue", 1125, 470, 125)
-createButton("NecklaceQueue", 1250, 470, 125)
-createButton("FrontBar1Queue", 1375, 470, 125)
-createButton("FrontBar2Queue", 1500, 470, 125)
-createButton("BackBar1Queue", 1625, 470, 125)
-createButton("BackBar2Queue", 1750, 470, 125)
+createButton("ShieldQueue", 0, 470, 80)
+createButton("ChestQueue", 80, 470, 80)
+createButton("FeetQueue", 160, 470, 80)
+createButton("HandsQueue", 240, 470, 80)
+createButton("LegsQueue", 320, 470, 80)
+createButton("WaistQueue", 400, 470, 80)
+createButton("HeadQueue", 480, 470, 80)
+createButton("ShouldersQueue", 560, 470, 80)
+createButton("Ring1Queue", 640, 470, 80)
+createButton("Ring2Queue", 720, 470, 80)
+createButton("NecklaceQueue", 800, 470, 80)
+createButton("FrontBar1Queue", 880, 470, 80)
+createButton("FrontBar2Queue", 960, 470, 80)
+createButton("BackBar1Queue", 1040, 470, 80)
+createButton("BackBar2Queue", 1120, 470, 80)
