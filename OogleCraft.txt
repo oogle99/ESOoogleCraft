@@ -13,6 +13,7 @@ OogleCraftUI.xml
 
 OogleCraftHideAll.lua
 
+OogleCraft.lua
 
 OogleCraftMiscDropUI.lua
 OogleCraftArmorDropUI.lua
@@ -20,5 +21,3 @@ OogleCraftJewelDropUI.lua
 OogleCraftWeaponDropUI.lua
 
 bindings.xml
-
-OogleCraft.lua
