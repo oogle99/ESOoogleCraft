@@ -1,7 +1,8 @@
 OogleCraft = OogleCraft or {}
 OogleCraft.name = "OogleCraft"
 
-_G.selectedItems = _G.selectedItems or {}
+OogleCraft.savedVariables = OogleCraft.savedVariables or {}
+OogleCraft.savedVariables.desiredInfo = OogleCraft.savedVariables.desiredInfo or {}
 
 function OogleCraft.RestorePosition()
     local left = OogleCraft.savedVariables.left
@@ -12,18 +13,40 @@ function OogleCraft.RestorePosition()
 end
 
 function OogleCraft.Initialize()
-    
+    -- Initialize savedVariables
+    OogleCraft.savedVariables = ZO_SavedVars:NewCharacterIdSettings("OogleCraftSavedVariables", 1, nil, {})
+    -- Initialize Keybind
     ZO_CreateStringId("SI_BINDING_NAME_OogleCraftHideAll", "|cEECA2AHide All|r")
+    -- Initialize savedVariables savedLocation
     OogleCraft.RestorePosition()
 end
 
 function OogleCraft.OnAddOnLoaded(event, addonName)
+    -- If it's my addon, then do this
     if addonName == OogleCraft.name then
-        OogleCraft.savedVariables = ZO_SavedVars:NewCharacterIdSettings("OogleCraftSavedVariables", 1, nil, {})
-
+        -- Call Initialize
         OogleCraft.Initialize()
+        -- Set the desired savedVariables nested table to a variable to improve readabilty
+        local oogleCraftDesiredInfo = OogleCraft.savedVariables.desiredInfo
 
-        EVENT_MANAGER:UnregisterForEvent(OogleCraft.name, EVENT_ADD_ON_LOADED)
+        -- If the desired savedVariables nested table exists, set the dropdown selections
+        if oogleCraftDesiredInfo then
+            OogleCraft.PopulateMiscDropdowns()
+
+            OogleCraft.PopulateArmorDropdowns()
+            OogleCraft.PopulateJewelryDropdowns()
+            OogleCraft.PopulateWeaponDropdowns()
+
+           -- Unregister the EVENT_ADD_ON_LOADED
+            EVENT_MANAGER:UnregisterForEvent(OogleCraft.name, EVENT_ADD_ON_LOADED)
+        else
+            -- If the desired savedVariables nested table DOES NOT exist
+            -- Call the OnAddonLoaded function again, then wait 100 milliseconds
+            -- For some reason, this nested table does not exist right away
+            -- Therefore, a work around had to be implemented to allow the table to create
+            zo_callLater(function() OogleCraft.OnAddonLoaded(event, addonName) end, 100)
+            -- Trust me, this is the BACKBONE of the ENTIRE addon
+        end
     end
 end
 
@@ -34,27 +57,52 @@ function OogleCraft.OnWindowMoveStop()
     OogleCraft.savedVariables.top = OogleCraftMainPanel:GetTop()
 end
 
-function OogleCraft.ClearSavedVariables()
-    OogleCraft.savedVariables = {}
+function OogleCraft.ClearDropdownSavedVariables()
+    OogleCraft.savedVariables.desiredInfo = {}
+
+    OogleCraft.ResetLvlSelection()
+    OogleCraft.ResetSet1Selection()
+    OogleCraft.ResetSet2Selection()
+    OogleCraft.ResetSet3Selection()
+    OogleCraft.ResetStyleListSelection()
+
+    OogleCraft.ResetWeaponSetQualitySelection()
+    OogleCraft.ResetWeaponSetNumberSelection()
+    OogleCraft.ResetWeaponTypeSelection()
+    OogleCraft.ResetWeaponTraitSelection()
+    OogleCraft.ResetWeaponEnchantQualitySelection()
+    OogleCraft.ResetWeaponEnchantSelection()
+
+    OogleCraft.ResetJewelrySetQualitySelection()
+    OogleCraft.ResetJewelrySetNumberSelection()
+    OogleCraft.ResetJewelryTraitSelection()
+    OogleCraft.ResetJewelryEnchantQualitySelection()
+    OogleCraft.ResetJewelryTraitSelection()
+
+    OogleCraft.ResetArmorSetQualitySelection()
+    OogleCraft.ResetArmorSetNumberSelection()
+    OogleCraft.ResetArmorWeightSelection()
+    OogleCraft.ResetArmorTraitSelection()
+    OogleCraft.ResetArmorEnchantQualitySelection()
+    OogleCraft.ResetArmorEnchantSelection()
+
     d("Saved variables cleared.")
 end
 
-function OogleCraft.createClearButton(oogleCraftClearButtonFrameName, buttonxOffset, buttonyOffset, buttonWide)
-    local buttonContainer = WINDOW_MANAGER:CreateControlFromVirtual("OogleCraft" .. oogleCraftClearButtonFrameName .. "Button", OogleCraftMainPanel, "AddToQueueButton")
+function OogleCraft.createClearDropdownButton(oogleCraftClearButtonFrameName, buttonxOffset, buttonyOffset, buttonWide)
+    local buttonContainer = WINDOW_MANAGER:CreateControlFromVirtual("OogleCraft" .. oogleCraftClearButtonFrameName .. "Button", OogleCraftMainPanel, "ClearQueueButton")
     buttonContainer:SetAnchor(TOPLEFT, OogleCraftMainPanel, TOPLEFT, buttonxOffset + 7, buttonyOffset)
     buttonContainer:SetDimensions(125, 50)
     buttonContainer:GetNamedChild("Button"):SetWidth(buttonWide)
 
     buttonContainer:GetNamedChild("Button"):SetHandler("OnClicked", function()
-        OogleCraft.ClearSavedVariables()
+        OogleCraft.ClearDropdownSavedVariables()
     end)
 end
 
-OogleCraft.createClearButton("ClearEverything", 0, 40, 80)
+OogleCraft.createClearDropdownButton("ClearDropdowns", 507, -11, 200)
 
 function OogleCraft.addToQueueFunctionality(oogleCraftButtonFrameName)
-    
-    
     -- Define a map of queue types and their corresponding tables
     local queueTypes = {
         ["ShieldQueue"] = {
@@ -213,7 +261,7 @@ function OogleCraft.addToQueueFunctionality(oogleCraftButtonFrameName)
         local setSelectionKey = queueSelectionKeys[oogleCraftButtonFrameName]
 
         -- Get the selected items based on the selection key
-        local setSelection = _G.selectedItems[setSelectionKey]
+        local setSelection = OogleCraft.savedVariables.desiredInfo[setSelectionKey]
 
         -- Determine the corresponding "Set#List" based on the selected "Set" item
         local setListTable = "Set1List"  -- Default to "Set1List"
@@ -257,7 +305,7 @@ function OogleCraft.addToQueueFunctionality(oogleCraftButtonFrameName)
         end
 
         for _, tableKey in ipairs(tables) do
-            local selectedItems = _G.selectedItems[tableKey] or {}
+            local selectedItems = OogleCraft.savedVariables.desiredInfo[tableKey] or {}
             local message = "No items selected for " .. tableKey
 
             if next(selectedItems) then
@@ -272,4 +320,3 @@ function OogleCraft.addToQueueFunctionality(oogleCraftButtonFrameName)
             end
         end
     end
-
