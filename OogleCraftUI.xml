@@ -17,13 +17,10 @@
 
 				</Button>
 			</Controls>
-
-            
-
         </TopLevelControl>
 
         <TopLevelControl name="OogleCraftMainPanel" mouseEnabled="true" movable="true" clampedToScreen="true" hidden="false">
-            <Dimensions x="1214" y="550"/>
+            <Dimensions x="1214" y="357"/>
             <Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="TOPLEFT" offsetX="0" offsetY="0"/>
             
             <OnMoveStop>
@@ -52,8 +49,8 @@
                 </Control>
 
                 <Control name="$(parent)ShieldDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="7" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_offHand.dds" tier="HIGH">
@@ -68,8 +65,8 @@
                 </Control>
 
                 <Control name="$(parent)ChestDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="87" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="87" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_chest.dds" tier="HIGH">
@@ -84,8 +81,8 @@
                 </Control>
 
                 <Control name="$(parent)FeetDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="167" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="167" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_feet.dds" tier="HIGH">
@@ -100,8 +97,8 @@
                 </Control>
 
                 <Control name="$(parent)HandsDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="247" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="247" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_hands.dds" tier="HIGH">
@@ -116,8 +113,8 @@
                 </Control>
 
                 <Control name="$(parent)LegsDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="327" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="327" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_legs.dds" tier="HIGH">
@@ -132,8 +129,8 @@
                 </Control>
 
                 <Control name="$(parent)WaistDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="407" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="407" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_belt.dds" tier="HIGH">
@@ -148,8 +145,8 @@
                 </Control>
 
                 <Control name="$(parent)HeadDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="487" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="487" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_head.dds" tier="HIGH">
@@ -164,8 +161,8 @@
                 </Control>
 
                 <Control name="$(parent)ShouldersDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="567" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="567" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_shoulders.dds" tier="HIGH">
@@ -180,8 +177,8 @@
                 </Control>
 
                 <Control name="$(parent)Ring1Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="647" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="647" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_ring.dds" tier="HIGH">
@@ -196,8 +193,8 @@
                 </Control>
 
                 <Control name="$(parent)Ring2Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="727" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="727" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_ring.dds" tier="HIGH">
@@ -212,8 +209,8 @@
                 </Control>
 
                 <Control name="$(parent)NecklaceDivider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="807" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="807" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/CharacterWindow/gearSlot_neck.dds" tier="HIGH">
@@ -228,8 +225,8 @@
                 </Control>
 
                 <Control name="$(parent)FB1Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="887" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="887" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/Dye/outfitSlot_mainHand.dds" tier="HIGH">
@@ -244,8 +241,8 @@
                 </Control>
 
                 <Control name="$(parent)FB2Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="967" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="967" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/Dye/outfitSlot_offHand.dds" tier="HIGH">
@@ -260,8 +257,8 @@
                 </Control>
 
                 <Control name="$(parent)BB1Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1047" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1047" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/Dye/outfitSlot_mainHand.dds" tier="HIGH">
@@ -276,8 +273,8 @@
                 </Control>
 
                 <Control name="$(parent)BB2Divider" mouseEnabled="false" movable="false" clampedToScreen="true">
-                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1127" offsetY="115"/>
-                    <Dimensions x="80" y="345"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="1127" offsetY="65"/>
+                    <Dimensions x="80" y="285"/>
 
                     <Controls>
                         <Texture name="$(parent)TopSymbol" textureFile="EsoUI/Art/Dye/outfitSlot_offHand.dds" tier="HIGH">
@@ -388,6 +385,16 @@
                 </Controls>
         </Control>
         
+        <Control name="ClearQueueButton" virtual="true">
+            <Dimensions x="200" y="28" />
+            
+                <Controls>
+                    <Button name="$(parent)Button" text="Clear Dropdowns" inherits="ZO_DefaultButton">
+                        <Dimensions x="250"/>
+                        <Anchor point="LEFT"/>
+                    </Button>  
+                </Controls>
+        </Control>
 
         <Control name="ScrollCombobox" virtual="true">
             <Dimensions x="250" y="30" />
