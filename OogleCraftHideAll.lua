@@ -1,9 +1,20 @@
 OogleCraft = OogleCraft or {}
 
-local windowIsHidden = false
+
+function OogleCraft_OnCraftingStationInteract(eventCode, craftingType)
+    OogleCraftMainPanel:SetHidden(false)
+    OogleCraft.windowIsHidden = false
+end
+
+function OogleCraft_OnEndCraftingStationInteract(eventCode, craftingType)
+    OogleCraftMainPanel:SetHidden(true)
+    OogleCraft.windowIsHidden = true
+end
+
+OogleCraft.windowIsHidden = true
 function OogleCraft.toggleWindow()
-    if windowIsHidden == false then
-        windowIsHidden = true
+    if OogleCraft.windowIsHidden == false then
+        OogleCraft.windowIsHidden = true
 
         local elementsToHide = {
             OogleCraftMainPanel
@@ -14,7 +25,7 @@ function OogleCraft.toggleWindow()
         end
 
     else
-        windowIsHidden = false
+        OogleCraft.windowIsHidden = false
 
             local elementsToUnHide = {
             OogleCraftMainPanel
