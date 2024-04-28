@@ -7,13 +7,16 @@
 ## AddOnVersion: 1
 ## IsLibrary: False
 ## SavedVariables: OogleCraftSavedVariables
-
+## DependsOn: LibLazyCrafting
 
 OogleCraftUI.xml
 
 OogleCraftHideAll.lua
 
 OogleCraft.lua
+
+OogleCraftConstantTables.lua
+OogleCraftHelperFunctions.lua
 
 OogleCraftMiscDropUI.lua
 OogleCraftArmorDropUI.lua
