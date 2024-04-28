@@ -45,6 +45,8 @@ local function createWeaponSetQualityDropdown(oogleCraftDropdownFrameName, choic
 
         -- Store the selected item in the table corresponding to the current dropdown frame
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
 
     -- Populate the dropdown with entries, I have no idea how loops work, so this just works
@@ -68,8 +70,7 @@ local function createWeaponSetQualityDropdown(oogleCraftDropdownFrameName, choic
                 Green = 3,
                 Blue = 4,
                 Purple = 5,
-                Yellow = 6,
-                Orange = 7
+                Yellow = 6
             }
             -- I need the specific dropdown name or else it don't work
             -- Set the selection to the corresponding dropdown based on the indexMap and what's in the savedVariables
@@ -106,6 +107,8 @@ local function createWeaponSetNumberDropdown(oogleCraftDropdownFrameName, choice
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -194,6 +197,8 @@ local function createWeaponTypeDropdown(oogleCraftDropdownFrameName, choices, xO
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -318,6 +323,8 @@ local function createWeaponTraitDropdown(oogleCraftDropdownFrameName, choices, x
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -328,15 +335,16 @@ local function createWeaponTraitDropdown(oogleCraftDropdownFrameName, choices, x
         if OogleCraft.savedVariables.desiredInfo.TraitFrontBar1 then
             local traitFrontBar1 = OogleCraft.savedVariables.desiredInfo.TraitFrontBar1[1]
             local indexMap = {
-                ["Powered"] = 2,
-                ["Charged"] = 3,
-                ["Precise"] = 4,
-                ["Infused"] = 5,
-                ["Defending"] = 6,
-                ["Training"] = 7,
-                ["Sharpened"] = 8,
-                ["Decisive"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Powered"] = 3,
+                ["Charged"] = 4,
+                ["Precise"] = 5,
+                ["Infused"] = 6,
+                ["Defending"] = 7,
+                ["Training"] = 8,
+                ["Sharpened"] = 9,
+                ["Decisive"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftWeaponTraitFrontBar1Drop.dropdown:SetSelectedItem(choices[indexMap[traitFrontBar1] or 1])
         else
@@ -348,15 +356,16 @@ local function createWeaponTraitDropdown(oogleCraftDropdownFrameName, choices, x
         if OogleCraft.savedVariables.desiredInfo.TraitFrontBar2 then
             local traitFrontBar2 = OogleCraft.savedVariables.desiredInfo.TraitFrontBar2[1]
             local indexMap = {
-                ["Powered"] = 2,
-                ["Charged"] = 3,
-                ["Precise"] = 4,
-                ["Infused"] = 5,
-                ["Defending"] = 6,
-                ["Training"] = 7,
-                ["Sharpened"] = 8,
-                ["Decisive"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Powered"] = 3,
+                ["Charged"] = 4,
+                ["Precise"] = 5,
+                ["Infused"] = 6,
+                ["Defending"] = 7,
+                ["Training"] = 8,
+                ["Sharpened"] = 9,
+                ["Decisive"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftWeaponTraitFrontBar2Drop.dropdown:SetSelectedItem(choices[indexMap[traitFrontBar2] or 1])
         else
@@ -368,15 +377,16 @@ local function createWeaponTraitDropdown(oogleCraftDropdownFrameName, choices, x
         if OogleCraft.savedVariables.desiredInfo.TraitBackBar1 then
             local traitBackBar1 = OogleCraft.savedVariables.desiredInfo.TraitBackBar1[1]
             local indexMap = {
-                ["Powered"] = 2,
-                ["Charged"] = 3,
-                ["Precise"] = 4,
-                ["Infused"] = 5,
-                ["Defending"] = 6,
-                ["Training"] = 7,
-                ["Sharpened"] = 8,
-                ["Decisive"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Powered"] = 3,
+                ["Charged"] = 4,
+                ["Precise"] = 5,
+                ["Infused"] = 6,
+                ["Defending"] = 7,
+                ["Training"] = 8,
+                ["Sharpened"] = 9,
+                ["Decisive"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftWeaponTraitBackBar1Drop.dropdown:SetSelectedItem(choices[indexMap[traitBackBar1] or 1])
         else
@@ -388,15 +398,16 @@ local function createWeaponTraitDropdown(oogleCraftDropdownFrameName, choices, x
         if OogleCraft.savedVariables.desiredInfo.TraitBackBar2 then
             local traitBackBar2 = OogleCraft.savedVariables.desiredInfo.TraitBackBar2[1]
             local indexMap = {
-                ["Powered"] = 2,
-                ["Charged"] = 3,
-                ["Precise"] = 4,
-                ["Infused"] = 5,
-                ["Defending"] = 6,
-                ["Training"] = 7,
-                ["Sharpened"] = 8,
-                ["Decisive"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Powered"] = 3,
+                ["Charged"] = 4,
+                ["Precise"] = 5,
+                ["Infused"] = 6,
+                ["Defending"] = 7,
+                ["Training"] = 8,
+                ["Sharpened"] = 9,
+                ["Decisive"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftWeaponTraitBackBar2Drop.dropdown:SetSelectedItem(choices[indexMap[traitBackBar2] or 1])
         else
@@ -430,6 +441,8 @@ local function createWeaponEnchantQualityDropdown(oogleCraftDropdownFrameName, c
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -440,12 +453,12 @@ local function createWeaponEnchantQualityDropdown(oogleCraftDropdownFrameName, c
         if OogleCraft.savedVariables.desiredInfo.WeaponEnchantQuality then
             local weaponEnchantQuality = OogleCraft.savedVariables.desiredInfo.WeaponEnchantQuality[1]
             local indexMap = {
-                White = 2,
-                Green = 3,
-                Blue = 4,
-                Purple = 5,
-                Yellow = 6,
-                Orange = 7
+                None = 2,
+                White = 3,
+                Green = 4,
+                Blue = 5,
+                Purple = 6,
+                Yellow = 7
             }
             OogleCraftWeaponWeaponEnchantQualityDrop.dropdown:SetSelectedItem(choices[indexMap[weaponEnchantQuality] or 1])
         else
@@ -476,6 +489,8 @@ local function createWeaponEnchantDropdown(oogleCraftDropdownFrameName, choices,
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -486,20 +501,19 @@ local function createWeaponEnchantDropdown(oogleCraftDropdownFrameName, choices,
         if OogleCraft.savedVariables.desiredInfo.EnchantFrontBar1 then
             local enchantFrontBar1 = OogleCraft.savedVariables.desiredInfo.EnchantFrontBar1[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Absorb Health"] = 3,
-                ["Absorb Magicka"] = 4,
-                ["Absorb Stamina"] = 5,
-                ["Decrease Health"] = 6,
-                ["Poison"] = 7,
-                ["Flame"] = 8,
-                ["Frost"] = 9,
-                ["Shock"] = 10,
-                ["Foulness"] = 11,
-                ["Crushing"] = 12,
-                ["Weakening"] = 13,
-                ["Weapon Damage"] = 14,
-                ["Prismatic Onslaught"] = 15
+                ["Absorb Health"] = 2,
+                ["Absorb Magicka"] = 3,
+                ["Absorb Stamina"] = 4,
+                ["Decrease Health"] = 5,
+                ["Poison"] = 6,
+                ["Flame"] = 7,
+                ["Frost"] = 8,
+                ["Shock"] = 9,
+                ["Foulness"] = 10,
+                ["Crushing"] = 11,
+                ["Weakening"] = 12,
+                ["Weapon Damage"] = 13,
+                ["Prismatic Onslaught"] = 14
             }
             OogleCraftWeaponEnchantFrontBar1Drop.dropdown:SetSelectedItem(choices[indexMap[enchantFrontBar1] or 1])
         else
@@ -511,20 +525,19 @@ local function createWeaponEnchantDropdown(oogleCraftDropdownFrameName, choices,
         if OogleCraft.savedVariables.desiredInfo.EnchantFrontBar2 then
             local enchantFrontBar2 = OogleCraft.savedVariables.desiredInfo.EnchantFrontBar2[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Absorb Health"] = 3,
-                ["Absorb Magicka"] = 4,
-                ["Absorb Stamina"] = 5,
-                ["Decrease Health"] = 6,
-                ["Poison"] = 7,
-                ["Flame"] = 8,
-                ["Frost"] = 9,
-                ["Shock"] = 10,
-                ["Foulness"] = 11,
-                ["Crushing"] = 12,
-                ["Weakening"] = 13,
-                ["Weapon Damage"] = 14,
-                ["Prismatic Onslaught"] = 15
+                ["Absorb Health"] = 2,
+                ["Absorb Magicka"] = 3,
+                ["Absorb Stamina"] = 4,
+                ["Decrease Health"] = 5,
+                ["Poison"] = 6,
+                ["Flame"] = 7,
+                ["Frost"] = 8,
+                ["Shock"] = 9,
+                ["Foulness"] = 10,
+                ["Crushing"] = 11,
+                ["Weakening"] = 12,
+                ["Weapon Damage"] = 13,
+                ["Prismatic Onslaught"] = 14
             }
             OogleCraftWeaponEnchantFrontBar2Drop.dropdown:SetSelectedItem(choices[indexMap[enchantFrontBar2] or 1])
         else
@@ -536,20 +549,19 @@ local function createWeaponEnchantDropdown(oogleCraftDropdownFrameName, choices,
         if OogleCraft.savedVariables.desiredInfo.EnchantBackBar1 then
             local enchantBackBar1 = OogleCraft.savedVariables.desiredInfo.EnchantBackBar1[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Absorb Health"] = 3,
-                ["Absorb Magicka"] = 4,
-                ["Absorb Stamina"] = 5,
-                ["Decrease Health"] = 6,
-                ["Poison"] = 7,
-                ["Flame"] = 8,
-                ["Frost"] = 9,
-                ["Shock"] = 10,
-                ["Foulness"] = 11,
-                ["Crushing"] = 12,
-                ["Weakening"] = 13,
-                ["Weapon Damage"] = 14,
-                ["Prismatic Onslaught"] = 15
+                ["Absorb Health"] = 2,
+                ["Absorb Magicka"] = 3,
+                ["Absorb Stamina"] = 4,
+                ["Decrease Health"] = 5,
+                ["Poison"] = 6,
+                ["Flame"] = 7,
+                ["Frost"] = 8,
+                ["Shock"] = 9,
+                ["Foulness"] = 10,
+                ["Crushing"] = 11,
+                ["Weakening"] = 12,
+                ["Weapon Damage"] = 13,
+                ["Prismatic Onslaught"] = 14
             }
             OogleCraftWeaponEnchantBackBar1Drop.dropdown:SetSelectedItem(choices[indexMap[enchantBackBar1] or 1])
         else
@@ -561,20 +573,19 @@ local function createWeaponEnchantDropdown(oogleCraftDropdownFrameName, choices,
         if OogleCraft.savedVariables.desiredInfo.EnchantBackBar2 then
             local enchantBackBar2 = OogleCraft.savedVariables.desiredInfo.EnchantBackBar2[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Absorb Health"] = 3,
-                ["Absorb Magicka"] = 4,
-                ["Absorb Stamina"] = 5,
-                ["Decrease Health"] = 6,
-                ["Poison"] = 7,
-                ["Flame"] = 8,
-                ["Frost"] = 9,
-                ["Shock"] = 10,
-                ["Foulness"] = 11,
-                ["Crushing"] = 12,
-                ["Weakening"] = 13,
-                ["Weapon Damage"] = 14,
-                ["Prismatic Onslaught"] = 15
+                ["Absorb Health"] = 2,
+                ["Absorb Magicka"] = 3,
+                ["Absorb Stamina"] = 4,
+                ["Decrease Health"] = 5,
+                ["Poison"] = 6,
+                ["Flame"] = 7,
+                ["Frost"] = 8,
+                ["Shock"] = 9,
+                ["Foulness"] = 10,
+                ["Crushing"] = 11,
+                ["Weakening"] = 12,
+                ["Weapon Damage"] = 13,
+                ["Prismatic Onslaught"] = 14
             }
             OogleCraftWeaponEnchantBackBar2Drop.dropdown:SetSelectedItem(choices[indexMap[enchantBackBar2] or 1])
         else
@@ -619,7 +630,7 @@ end
 --- Weapon Quality Choices ----------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftWeaponSetQualityChoices = {"[Weapon Quality]", "White", "Green", "Blue", "Purple", "Yellow", "Orange"}
+local OogleCraftWeaponSetQualityChoices = {"[Weapon Quality]", "White", "Green", "Blue", "Purple", "Yellow"}
 
 createWeaponSetQualityDropdown("WeaponSetQuality", OogleCraftWeaponSetQualityChoices, 880, 95, 320)
 
@@ -655,10 +666,10 @@ createWeaponTypeDropdown("TypeBackBar2", OogleCraftWeaponTypeBackBar2Choices, 11
 --- Weapon Trait Choices -----------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftWeaponTraitFrontBar1Choices = {"[Trait]", "Powered", "Charged", "Precise", "Infused", "Defending", "Training", "Sharpened", "Decisive", "Nirnhoned"}
-local OogleCraftWeaponTraitFrontBar2Choices = {"[Trait]", "Powered", "Charged", "Precise", "Infused", "Defending", "Training", "Sharpened", "Decisive", "Nirnhoned"}
-local OogleCraftWeaponTraitBackBar1Choices = {"[Trait]", "Powered", "Charged", "Precise", "Infused", "Defending", "Training", "Sharpened", "Decisive", "Nirnhoned"}
-local OogleCraftWeaponTraitBackBar2Choices = {"[Trait]", "Powered", "Charged", "Precise", "Infused", "Defending", "Training", "Sharpened", "Decisive", "Nirnhoned"}
+local OogleCraftWeaponTraitFrontBar1Choices = {"[Trait]", "None", "Powered", "Charged", "Precise", "Infused", "Defending", "Training", "Sharpened", "Decisive", "Nirnhoned"}
+local OogleCraftWeaponTraitFrontBar2Choices = {"[Trait]", "None", "Powered", "Charged", "Precise", "Infused", "Defending", "Training", "Sharpened", "Decisive", "Nirnhoned"}
+local OogleCraftWeaponTraitBackBar1Choices = {"[Trait]", "None", "Powered", "Charged", "Precise", "Infused", "Defending", "Training", "Sharpened", "Decisive", "Nirnhoned"}
+local OogleCraftWeaponTraitBackBar2Choices = {"[Trait]", "None", "Powered", "Charged", "Precise", "Infused", "Defending", "Training", "Sharpened", "Decisive", "Nirnhoned"}
 
 createWeaponTraitDropdown("TraitFrontBar1", OogleCraftWeaponTraitFrontBar1Choices, 880, 185, 80)
 createWeaponTraitDropdown("TraitFrontBar2", OogleCraftWeaponTraitFrontBar2Choices, 960, 185, 80)
@@ -669,7 +680,7 @@ createWeaponTraitDropdown("TraitBackBar2", OogleCraftWeaponTraitBackBar2Choices,
 --- Weapon Enchant Quality ----------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftWeaponEnchantQualityChoices = {"[Weapon Enchant Quality]", "White", "Green", "Blue", "Purple", "Yellow"}
+local OogleCraftWeaponEnchantQualityChoices = {"[Weapon Enchant Quality]", "None", "White", "Green", "Blue", "Purple", "Yellow"}
 
 createWeaponEnchantQualityDropdown("WeaponEnchantQuality", OogleCraftWeaponEnchantQualityChoices, 880, 245, 320)
 
@@ -677,10 +688,10 @@ createWeaponEnchantQualityDropdown("WeaponEnchantQuality", OogleCraftWeaponEncha
 --- Weapon Enchant Choices ---------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftWeaponEnchantFrontBar1Choices = {"[Ench.]", "None", "Absorb Health", "Absorb Magicka", "Absorb Stamina", "Decrease Health", "Poison", "Flame", "Frost", "Shock", "Foulness", "Crushing", "Weakening", "Weapon Damage", "Prismatic Onslaught"}
-local OogleCraftWeaponEnchantFrontBar2Choices = {"[Ench.]", "None", "Absorb Health", "Absorb Magicka", "Absorb Stamina", "Decrease Health", "Poison", "Flame", "Frost", "Shock", "Foulness", "Crushing", "Weakening", "Weapon Damage", "Prismatic Onslaught"}
-local OogleCraftWeaponEnchantBackBar1Choices = {"[Ench.]", "None", "Absorb Health", "Absorb Magicka", "Absorb Stamina", "Decrease Health", "Poison", "Flame", "Frost", "Shock", "Foulness", "Crushing", "Weakening", "Weapon Damage", "Prismatic Onslaught"}
-local OogleCraftWeaponEnchantBackBar2Choices = {"[Ench.]", "None", "Absorb Health", "Absorb Magicka", "Absorb Stamina", "Decrease Health", "Poison", "Flame", "Frost", "Shock", "Foulness", "Crushing", "Weakening", "Weapon Damage", "Prismatic Onslaught"}
+local OogleCraftWeaponEnchantFrontBar1Choices = {"[Ench.]", "Absorb Health", "Absorb Magicka", "Absorb Stamina", "Decrease Health", "Poison", "Flame", "Frost", "Shock", "Foulness", "Crushing", "Weakening", "Weapon Damage", "Prismatic Onslaught"}
+local OogleCraftWeaponEnchantFrontBar2Choices = {"[Ench.]", "Absorb Health", "Absorb Magicka", "Absorb Stamina", "Decrease Health", "Poison", "Flame", "Frost", "Shock", "Foulness", "Crushing", "Weakening", "Weapon Damage", "Prismatic Onslaught"}
+local OogleCraftWeaponEnchantBackBar1Choices = {"[Ench.]", "Absorb Health", "Absorb Magicka", "Absorb Stamina", "Decrease Health", "Poison", "Flame", "Frost", "Shock", "Foulness", "Crushing", "Weakening", "Weapon Damage", "Prismatic Onslaught"}
+local OogleCraftWeaponEnchantBackBar2Choices = {"[Ench.]", "Absorb Health", "Absorb Magicka", "Absorb Stamina", "Decrease Health", "Poison", "Flame", "Frost", "Shock", "Foulness", "Crushing", "Weakening", "Weapon Damage", "Prismatic Onslaught"}
 
 createWeaponEnchantDropdown("EnchantFrontBar1", OogleCraftWeaponEnchantFrontBar1Choices, 880, 275, 80)
 createWeaponEnchantDropdown("EnchantFrontBar2", OogleCraftWeaponEnchantFrontBar2Choices, 960, 275, 80)
