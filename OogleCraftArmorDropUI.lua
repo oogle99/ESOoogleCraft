@@ -73,6 +73,8 @@ local function createArmorSetQualityDropdown(oogleCraftDropdownFrameName, choice
 
         -- Store the selected item in the table corresponding to the current dropdown frame
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
 
     -- Populate the dropdown with entries, I have no idea how loops work, so this just works
@@ -96,8 +98,7 @@ local function createArmorSetQualityDropdown(oogleCraftDropdownFrameName, choice
                 Green = 3,
                 Blue = 4,
                 Purple = 5,
-                Yellow = 6,
-                Orange = 7
+                Yellow = 6
             }
             -- I need the specific dropdown name or else it don't work
             -- Set the selection to the corresponding dropdown based on the indexMap and what's in the savedVariables
@@ -134,6 +135,8 @@ local function createArmorSetNumberDropdown(oogleCraftDropdownFrameName, choices
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -282,6 +285,8 @@ local function createArmorWeightDropdown(oogleCraftDropdownFrameName, choices, x
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -415,6 +420,8 @@ local function createArmorTraitDropdown(oogleCraftDropdownFrameName, choices, xO
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -425,15 +432,16 @@ local function createArmorTraitDropdown(oogleCraftDropdownFrameName, choices, xO
         if OogleCraft.savedVariables.desiredInfo.TraitShield then
             local traitShield = OogleCraft.savedVariables.desiredInfo.TraitShield[1]
             local indexMap = {
-                ["Sturdy"] = 2,
-                ["Impenetrable"] = 3,
-                ["Reinforced"] = 4,
-                ["Well-fitted"] = 5,
-                ["Training"] = 6,
-                ["Infused"] = 7,
-                ["Invigorating"] = 8,
-                ["Divines"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Sturdy"] = 3,
+                ["Impenetrable"] = 4,
+                ["Reinforced"] = 5,
+                ["Well-fitted"] = 6,
+                ["Training"] = 7,
+                ["Infused"] = 8,
+                ["Invigorating"] = 9,
+                ["Divines"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftArmorTraitShieldDrop.dropdown:SetSelectedItem(choices[indexMap[traitShield] or 1])
         else
@@ -445,15 +453,16 @@ local function createArmorTraitDropdown(oogleCraftDropdownFrameName, choices, xO
         if OogleCraft.savedVariables.desiredInfo.TraitChest then
             local traitChest = OogleCraft.savedVariables.desiredInfo.TraitChest[1]
             local indexMap = {
-                ["Sturdy"] = 2,
-                ["Impenetrable"] = 3,
-                ["Reinforced"] = 4,
-                ["Well-fitted"] = 5,
-                ["Training"] = 6,
-                ["Infused"] = 7,
-                ["Invigorating"] = 8,
-                ["Divines"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Sturdy"] = 3,
+                ["Impenetrable"] = 4,
+                ["Reinforced"] = 5,
+                ["Well-fitted"] = 6,
+                ["Training"] = 7,
+                ["Infused"] = 8,
+                ["Invigorating"] = 9,
+                ["Divines"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftArmorTraitChestDrop.dropdown:SetSelectedItem(choices[indexMap[traitChest] or 1])
         else
@@ -465,15 +474,16 @@ local function createArmorTraitDropdown(oogleCraftDropdownFrameName, choices, xO
         if OogleCraft.savedVariables.desiredInfo.TraitFeet then
             local traitFeet = OogleCraft.savedVariables.desiredInfo.TraitFeet[1]
             local indexMap = {
-                ["Sturdy"] = 2,
-                ["Impenetrable"] = 3,
-                ["Reinforced"] = 4,
-                ["Well-fitted"] = 5,
-                ["Training"] = 6,
-                ["Infused"] = 7,
-                ["Invigorating"] = 8,
-                ["Divines"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Sturdy"] = 3,
+                ["Impenetrable"] = 4,
+                ["Reinforced"] = 5,
+                ["Well-fitted"] = 6,
+                ["Training"] = 7,
+                ["Infused"] = 8,
+                ["Invigorating"] = 9,
+                ["Divines"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftArmorTraitFeetDrop.dropdown:SetSelectedItem(choices[indexMap[traitFeet] or 1])
         else
@@ -485,15 +495,16 @@ local function createArmorTraitDropdown(oogleCraftDropdownFrameName, choices, xO
         if OogleCraft.savedVariables.desiredInfo.TraitHands then
             local traitHands = OogleCraft.savedVariables.desiredInfo.TraitHands[1]
             local indexMap = {
-                ["Sturdy"] = 2,
-                ["Impenetrable"] = 3,
-                ["Reinforced"] = 4,
-                ["Well-fitted"] = 5,
-                ["Training"] = 6,
-                ["Infused"] = 7,
-                ["Invigorating"] = 8,
-                ["Divines"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Sturdy"] = 3,
+                ["Impenetrable"] = 4,
+                ["Reinforced"] = 5,
+                ["Well-fitted"] = 6,
+                ["Training"] = 7,
+                ["Infused"] = 8,
+                ["Invigorating"] = 9,
+                ["Divines"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftArmorTraitHandsDrop.dropdown:SetSelectedItem(choices[indexMap[traitHands] or 1])
         else
@@ -505,15 +516,16 @@ local function createArmorTraitDropdown(oogleCraftDropdownFrameName, choices, xO
         if OogleCraft.savedVariables.desiredInfo.TraitLegs then
             local traitLegs = OogleCraft.savedVariables.desiredInfo.TraitLegs[1]
             local indexMap = {
-                ["Sturdy"] = 2,
-                ["Impenetrable"] = 3,
-                ["Reinforced"] = 4,
-                ["Well-fitted"] = 5,
-                ["Training"] = 6,
-                ["Infused"] = 7,
-                ["Invigorating"] = 8,
-                ["Divines"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Sturdy"] = 3,
+                ["Impenetrable"] = 4,
+                ["Reinforced"] = 5,
+                ["Well-fitted"] = 6,
+                ["Training"] = 7,
+                ["Infused"] = 8,
+                ["Invigorating"] = 9,
+                ["Divines"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftArmorTraitLegsDrop.dropdown:SetSelectedItem(choices[indexMap[traitLegs] or 1])
         else
@@ -525,15 +537,16 @@ local function createArmorTraitDropdown(oogleCraftDropdownFrameName, choices, xO
         if OogleCraft.savedVariables.desiredInfo.TraitWaist then
             local traitWaist = OogleCraft.savedVariables.desiredInfo.TraitWaist[1]
             local indexMap = {
-                ["Sturdy"] = 2,
-                ["Impenetrable"] = 3,
-                ["Reinforced"] = 4,
-                ["Well-fitted"] = 5,
-                ["Training"] = 6,
-                ["Infused"] = 7,
-                ["Invigorating"] = 8,
-                ["Divines"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Sturdy"] = 3,
+                ["Impenetrable"] = 4,
+                ["Reinforced"] = 5,
+                ["Well-fitted"] = 6,
+                ["Training"] = 7,
+                ["Infused"] = 8,
+                ["Invigorating"] = 9,
+                ["Divines"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftArmorTraitWaistDrop.dropdown:SetSelectedItem(choices[indexMap[traitWaist] or 1])
         else
@@ -545,15 +558,16 @@ local function createArmorTraitDropdown(oogleCraftDropdownFrameName, choices, xO
         if OogleCraft.savedVariables.desiredInfo.TraitHead then
             local traitHead = OogleCraft.savedVariables.desiredInfo.TraitHead[1]
             local indexMap = {
-                ["Sturdy"] = 2,
-                ["Impenetrable"] = 3,
-                ["Reinforced"] = 4,
-                ["Well-fitted"] = 5,
-                ["Training"] = 6,
-                ["Infused"] = 7,
-                ["Invigorating"] = 8,
-                ["Divines"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Sturdy"] = 3,
+                ["Impenetrable"] = 4,
+                ["Reinforced"] = 5,
+                ["Well-fitted"] = 6,
+                ["Training"] = 7,
+                ["Infused"] = 8,
+                ["Invigorating"] = 9,
+                ["Divines"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftArmorTraitHeadDrop.dropdown:SetSelectedItem(choices[indexMap[traitHead] or 1])
         else
@@ -565,15 +579,16 @@ local function createArmorTraitDropdown(oogleCraftDropdownFrameName, choices, xO
         if OogleCraft.savedVariables.desiredInfo.TraitShoulders then
             local traitShoulders = OogleCraft.savedVariables.desiredInfo.TraitShoulders[1]
             local indexMap = {
-                ["Sturdy"] = 2,
-                ["Impenetrable"] = 3,
-                ["Reinforced"] = 4,
-                ["Well-fitted"] = 5,
-                ["Training"] = 6,
-                ["Infused"] = 7,
-                ["Invigorating"] = 8,
-                ["Divines"] = 9,
-                ["Nirnhoned"] = 10
+                ["None"] = 2,
+                ["Sturdy"] = 3,
+                ["Impenetrable"] = 4,
+                ["Reinforced"] = 5,
+                ["Well-fitted"] = 6,
+                ["Training"] = 7,
+                ["Infused"] = 8,
+                ["Invigorating"] = 9,
+                ["Divines"] = 10,
+                ["Nirnhoned"] = 11
             }
             OogleCraftArmorTraitShouldersDrop.dropdown:SetSelectedItem(choices[indexMap[traitShoulders] or 1])
         else
@@ -611,6 +626,8 @@ local function createArmorEnchantQualityDropdown(oogleCraftDropdownFrameName, ch
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -621,12 +638,12 @@ local function createArmorEnchantQualityDropdown(oogleCraftDropdownFrameName, ch
         if OogleCraft.savedVariables.desiredInfo.ArmorEnchantQuality then
             local armorEnchantQuality = OogleCraft.savedVariables.desiredInfo.ArmorEnchantQuality[1]
             local indexMap = {
-                White = 2,
-                Green = 3,
-                Blue = 4,
-                Purple = 5,
-                Yellow = 6,
-                Orange = 7
+                None = 2,
+                White = 3,
+                Green = 4,
+                Blue = 5,
+                Purple = 6,
+                Yellow = 7
             }
             OogleCraftArmorArmorEnchantQualityDrop.dropdown:SetSelectedItem(choices[indexMap[armorEnchantQuality] or 1])
         else
@@ -657,6 +674,8 @@ local function createArmorEnchantDropdown(oogleCraftDropdownFrameName, choices, 
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -667,11 +686,10 @@ local function createArmorEnchantDropdown(oogleCraftDropdownFrameName, choices, 
         if OogleCraft.savedVariables.desiredInfo.EnchantShield then
             local enchantShield = OogleCraft.savedVariables.desiredInfo.EnchantShield[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Health"] = 3,
-                ["Magicka"] = 4,
-                ["Stamina"] = 5,
-                ["Prismatic Defense"] = 6
+                ["Health"] = 2,
+                ["Magicka"] = 3,
+                ["Stamina"] = 4,
+                ["Prismatic Defense"] = 5
             }
             OogleCraftArmorEnchantShieldDrop.dropdown:SetSelectedItem(choices[indexMap[enchantShield] or 1])
         else
@@ -683,11 +701,10 @@ local function createArmorEnchantDropdown(oogleCraftDropdownFrameName, choices, 
         if OogleCraft.savedVariables.desiredInfo.EnchantChest then
             local enchantChest = OogleCraft.savedVariables.desiredInfo.EnchantChest[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Health"] = 3,
-                ["Magicka"] = 4,
-                ["Stamina"] = 5,
-                ["Prismatic Defense"] = 6
+                ["Health"] = 2,
+                ["Magicka"] = 3,
+                ["Stamina"] = 4,
+                ["Prismatic Defense"] = 5
             }
             OogleCraftArmorEnchantChestDrop.dropdown:SetSelectedItem(choices[indexMap[enchantChest] or 1])
         else
@@ -699,11 +716,10 @@ local function createArmorEnchantDropdown(oogleCraftDropdownFrameName, choices, 
         if OogleCraft.savedVariables.desiredInfo.EnchantFeet then
             local enchantFeet = OogleCraft.savedVariables.desiredInfo.EnchantFeet[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Health"] = 3,
-                ["Magicka"] = 4,
-                ["Stamina"] = 5,
-                ["Prismatic Defense"] = 6
+                ["Health"] = 2,
+                ["Magicka"] = 3,
+                ["Stamina"] = 4,
+                ["Prismatic Defense"] = 5
             }
             OogleCraftArmorEnchantFeetDrop.dropdown:SetSelectedItem(choices[indexMap[enchantFeet] or 1])
         else
@@ -715,11 +731,10 @@ local function createArmorEnchantDropdown(oogleCraftDropdownFrameName, choices, 
         if OogleCraft.savedVariables.desiredInfo.EnchantHands then
             local enchantHands = OogleCraft.savedVariables.desiredInfo.EnchantHands[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Health"] = 3,
-                ["Magicka"] = 4,
-                ["Stamina"] = 5,
-                ["Prismatic Defense"] = 6
+                ["Health"] = 2,
+                ["Magicka"] = 3,
+                ["Stamina"] = 4,
+                ["Prismatic Defense"] = 5
             }
             OogleCraftArmorEnchantHandsDrop.dropdown:SetSelectedItem(choices[indexMap[enchantHands] or 1])
         else
@@ -731,11 +746,10 @@ local function createArmorEnchantDropdown(oogleCraftDropdownFrameName, choices, 
         if OogleCraft.savedVariables.desiredInfo.EnchantLegs then
             local enchantLegs = OogleCraft.savedVariables.desiredInfo.EnchantLegs[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Health"] = 3,
-                ["Magicka"] = 4,
-                ["Stamina"] = 5,
-                ["Prismatic Defense"] = 6
+                ["Health"] = 2,
+                ["Magicka"] = 3,
+                ["Stamina"] = 4,
+                ["Prismatic Defense"] = 5
             }
             OogleCraftArmorEnchantLegsDrop.dropdown:SetSelectedItem(choices[indexMap[enchantLegs] or 1])
         else
@@ -747,11 +761,10 @@ local function createArmorEnchantDropdown(oogleCraftDropdownFrameName, choices, 
         if OogleCraft.savedVariables.desiredInfo.EnchantWaist then
             local enchantWaist = OogleCraft.savedVariables.desiredInfo.EnchantWaist[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Health"] = 3,
-                ["Magicka"] = 4,
-                ["Stamina"] = 5,
-                ["Prismatic Defense"] = 6
+                ["Health"] = 2,
+                ["Magicka"] = 3,
+                ["Stamina"] = 4,
+                ["Prismatic Defense"] = 5
             }
             OogleCraftArmorEnchantWaistDrop.dropdown:SetSelectedItem(choices[indexMap[enchantWaist] or 1])
         else
@@ -763,11 +776,10 @@ local function createArmorEnchantDropdown(oogleCraftDropdownFrameName, choices, 
         if OogleCraft.savedVariables.desiredInfo.EnchantHead then
             local enchantHead = OogleCraft.savedVariables.desiredInfo.EnchantHead[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Health"] = 3,
-                ["Magicka"] = 4,
-                ["Stamina"] = 5,
-                ["Prismatic Defense"] = 6
+                ["Health"] = 2,
+                ["Magicka"] = 3,
+                ["Stamina"] = 4,
+                ["Prismatic Defense"] = 5
             }
             OogleCraftArmorEnchantHeadDrop.dropdown:SetSelectedItem(choices[indexMap[enchantHead] or 1])
         else
@@ -779,11 +791,10 @@ local function createArmorEnchantDropdown(oogleCraftDropdownFrameName, choices, 
         if OogleCraft.savedVariables.desiredInfo.EnchantShoulders then
             local enchantShoulders = OogleCraft.savedVariables.desiredInfo.EnchantShoulders[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Health"] = 3,
-                ["Magicka"] = 4,
-                ["Stamina"] = 5,
-                ["Prismatic Defense"] = 6
+                ["Health"] = 2,
+                ["Magicka"] = 3,
+                ["Stamina"] = 4,
+                ["Prismatic Defense"] = 5
             }
             OogleCraftArmorEnchantShouldersDrop.dropdown:SetSelectedItem(choices[indexMap[enchantShoulders] or 1])
         else
@@ -848,7 +859,7 @@ end
 --- Armor Quality Choices ----------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftArmorSetQualityChoices = {"[Armor Quality]", "White", "Green", "Blue", "Purple", "Yellow", "Orange"}
+local OogleCraftArmorSetQualityChoices = {"[Armor Quality]", "White", "Green", "Blue", "Purple", "Yellow"}
 
 createArmorSetQualityDropdown("ArmorSetQuality", OogleCraftArmorSetQualityChoices, 0, 95, 640)
 
@@ -899,14 +910,14 @@ createArmorWeightDropdown("WeightShoulders", OogleCraftArmorWeightShouldersChoic
 --- Armor Trait Choices -----------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftArmorTraitShieldChoices = {"[Trait]", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
-local OogleCraftArmorTraitChestChoices = {"[Trait]", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
-local OogleCraftArmorTraitFeetChoices = {"[Trait]", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
-local OogleCraftArmorTraitHandsChoices = {"[Trait]", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
-local OogleCraftArmorTraitLegsChoices = {"[Trait]", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
-local OogleCraftArmorTraitWaistChoices = {"[Trait]", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
-local OogleCraftArmorTraitHeadChoices = {"[Trait]", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
-local OogleCraftArmorTraitShouldersChoices = {"[Trait]", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
+local OogleCraftArmorTraitShieldChoices = {"[Trait]", "None", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
+local OogleCraftArmorTraitChestChoices = {"[Trait]", "None", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
+local OogleCraftArmorTraitFeetChoices = {"[Trait]", "None", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
+local OogleCraftArmorTraitHandsChoices = {"[Trait]", "None", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
+local OogleCraftArmorTraitLegsChoices = {"[Trait]", "None", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
+local OogleCraftArmorTraitWaistChoices = {"[Trait]", "None", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
+local OogleCraftArmorTraitHeadChoices = {"[Trait]", "None", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
+local OogleCraftArmorTraitShouldersChoices = {"[Trait]", "None", "Sturdy", "Impenetrable", "Reinforced", "Well-fitted", "Training", "Infused", "Invigorating", "Divines", "Nirnhoned"}
 
 createArmorTraitDropdown("TraitShield", OogleCraftArmorTraitShieldChoices, 0, 185, 80)
 createArmorTraitDropdown("TraitChest", OogleCraftArmorTraitChestChoices, 80, 185, 80)
@@ -921,7 +932,7 @@ createArmorTraitDropdown("TraitShoulders", OogleCraftArmorTraitShouldersChoices,
 --- Armor Enchant Quality ----------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftArmorEnchantQualityChoices = {"[Armor Enchant Quality]", "White", "Green", "Blue", "Purple", "Yellow"}
+local OogleCraftArmorEnchantQualityChoices = {"[Armor Enchant Quality]", "None", "White", "Green", "Blue", "Purple", "Yellow"}
 
 createArmorEnchantQualityDropdown("ArmorEnchantQuality", OogleCraftArmorEnchantQualityChoices, 0, 245, 640)
 
@@ -929,14 +940,14 @@ createArmorEnchantQualityDropdown("ArmorEnchantQuality", OogleCraftArmorEnchantQ
 --- Armor Enchant Choices ----------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftArmorEnchantShieldChoices = {"[Ench.]", "None", "Health", "Magicka", "Stamina", "Prismatic Defense"}
-local OogleCraftArmorEnchantChestChoices = {"[Ench.]", "None", "Health", "Magicka", "Stamina", "Prismatic Defense"}
-local OogleCraftArmorEnchantFeetChoices = {"[Ench.]", "None", "Health", "Magicka", "Stamina", "Prismatic Defense"}
-local OogleCraftArmorEnchantHandsChoices = {"[Ench.]", "None", "Health", "Magicka", "Stamina", "Prismatic Defense"}
-local OogleCraftArmorEnchantLegsChoices = {"[Ench.]", "None", "Health", "Magicka", "Stamina", "Prismatic Defense"}
-local OogleCraftArmorEnchantWaistChoices = {"[Ench.]", "None", "Health", "Magicka", "Stamina", "Prismatic Defense"}
-local OogleCraftArmorEnchantHeadChoices = {"[Ench.]", "None", "Health", "Magicka", "Stamina", "Prismatic Defense"}
-local OogleCraftArmorEnchantShouldersChoices = {"[Ench.]", "None", "Health", "Magicka", "Stamina", "Prismatic Defense"}
+local OogleCraftArmorEnchantShieldChoices = {"[Ench.]", "Health", "Magicka", "Stamina", "Prismatic Defense"}
+local OogleCraftArmorEnchantChestChoices = {"[Ench.]", "Health", "Magicka", "Stamina", "Prismatic Defense"}
+local OogleCraftArmorEnchantFeetChoices = {"[Ench.]", "Health", "Magicka", "Stamina", "Prismatic Defense"}
+local OogleCraftArmorEnchantHandsChoices = {"[Ench.]", "Health", "Magicka", "Stamina", "Prismatic Defense"}
+local OogleCraftArmorEnchantLegsChoices = {"[Ench.]", "Health", "Magicka", "Stamina", "Prismatic Defense"}
+local OogleCraftArmorEnchantWaistChoices = {"[Ench.]", "Health", "Magicka", "Stamina", "Prismatic Defense"}
+local OogleCraftArmorEnchantHeadChoices = {"[Ench.]", "Health", "Magicka", "Stamina", "Prismatic Defense"}
+local OogleCraftArmorEnchantShouldersChoices = {"[Ench.]", "Health", "Magicka", "Stamina", "Prismatic Defense"}
 
 createArmorEnchantDropdown("EnchantShield", OogleCraftArmorEnchantShieldChoices, 0, 275, 80)
 createArmorEnchantDropdown("EnchantChest", OogleCraftArmorEnchantChestChoices, 80, 275, 80)
