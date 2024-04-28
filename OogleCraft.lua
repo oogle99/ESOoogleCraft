@@ -4,6 +4,8 @@ OogleCraft.name = "OogleCraft"
 OogleCraft.savedVariables = OogleCraft.savedVariables or {}
 OogleCraft.savedVariables.desiredInfo = OogleCraft.savedVariables.desiredInfo or {}
 
+local LibLazyCrafting = LibLazyCrafting
+
 function OogleCraft.RestorePosition()
     local left = OogleCraft.savedVariables.left
     local top = OogleCraft.savedVariables.top
@@ -12,14 +14,24 @@ function OogleCraft.RestorePosition()
     OogleCraftMainPanel:SetAnchor(TOPLEFT, GuiRoot, TOPLEFT, left, top)
 end
 
+local function OogleCraftCompleteHandler(event, station, resultTable)
+
+end
+
 function OogleCraft.Initialize()
+    -- Initialize LibLazyCrafting Library
+    OogleCraft.LLC = LibLazyCrafting:AddRequestingAddon(OogleCraft.name, true, OogleCraftCompleteHandler)
     -- Initialize savedVariables
     OogleCraft.savedVariables = ZO_SavedVars:NewCharacterIdSettings("OogleCraftSavedVariables", 1, nil, {})
     -- Initialize Keybind
     ZO_CreateStringId("SI_BINDING_NAME_OogleCraftHideAll", "|cEECA2AHide All|r")
     -- Initialize savedVariables savedLocation
     OogleCraft.RestorePosition()
+
+    OogleCraft.savedVariables = OogleCraft.savedVariables or {}
+    OogleCraft.savedVariables.desiredInfo = OogleCraft.savedVariables.desiredInfo or {}
 end
+
 
 function OogleCraft.OnAddOnLoaded(event, addonName)
     -- If it's my addon, then do this
@@ -52,9 +64,17 @@ end
 
 EVENT_MANAGER:RegisterForEvent(OogleCraft.name, EVENT_ADD_ON_LOADED, OogleCraft.OnAddOnLoaded)
 
+EVENT_MANAGER:RegisterForEvent("OogleCraft", EVENT_CRAFTING_STATION_INTERACT, OogleCraft_OnCraftingStationInteract)
+EVENT_MANAGER:RegisterForEvent("OogleCraft", EVENT_END_CRAFTING_STATION_INTERACT, OogleCraft_OnEndCraftingStationInteract)
+
 function OogleCraft.OnWindowMoveStop()
     OogleCraft.savedVariables.left = OogleCraftMainPanel:GetLeft()
     OogleCraft.savedVariables.top = OogleCraftMainPanel:GetTop()
+    -- OogleCraft.Testing()
+end
+
+function OogleCraft.Testing()
+    --LLC_Global:CraftSmithingItemByLevel(1, false , 10, 3, 1, false, CRAFTING_TYPE_BLACKSMITHING, 385, 0, true)
 end
 
 function OogleCraft.ClearDropdownSavedVariables()
@@ -86,7 +106,7 @@ function OogleCraft.ClearDropdownSavedVariables()
     OogleCraft.ResetArmorEnchantQualitySelection()
     OogleCraft.ResetArmorEnchantSelection()
 
-    d("Saved variables cleared.")
+    --d("Saved variables cleared.")
 end
 
 function OogleCraft.createClearDropdownButton(oogleCraftClearButtonFrameName, buttonxOffset, buttonyOffset, buttonWide)
@@ -310,7 +330,7 @@ function OogleCraft.addToQueueFunctionality(oogleCraftButtonFrameName)
 
             if next(selectedItems) then
                 for _, item in ipairs(selectedItems) do
-                    d(item)
+                   -- d(item)
                 end
             else
                 --d(message)
