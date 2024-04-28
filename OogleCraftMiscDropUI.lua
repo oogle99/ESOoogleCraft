@@ -4,15 +4,7 @@ OogleCraft.name = "OogleCraft"
 OogleCraft.savedVariables = OogleCraft.savedVariables or {}
 OogleCraft.savedVariables.desiredInfo = OogleCraft.savedVariables.desiredInfo or {}
 
-
-local wm = WINDOW_MANAGER  --just an upvalue
-
-OogleCraft = OogleCraft or {}
-OogleCraft.name = "OogleCraft"
-
-OogleCraft.savedVariables = OogleCraft.savedVariables or {}
-OogleCraft.savedVariables.desiredInfo = OogleCraft.savedVariables.desiredInfo or {}
-
+local LLC = LibLazyCrafting
 
 local wm = WINDOW_MANAGER  --just an upvalue
 
@@ -55,6 +47,8 @@ local function createLvlDropdown(oogleCraftDropdownFrameName, choices, xOffset, 
 
         -- Store the selected item in the table corresponding to the current dropdown frame
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
 
     -- Populate the dropdown with entries, I have no idea how loops work, so this just works
@@ -132,6 +126,8 @@ local function createSet1ListDropdown(oogleCraftDropdownFrameName, choices, xOff
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -142,83 +138,84 @@ local function createSet1ListDropdown(oogleCraftDropdownFrameName, choices, xOff
         if OogleCraft.savedVariables.desiredInfo.Set1List then
             local set1List = OogleCraft.savedVariables.desiredInfo.Set1List[1]
             local indexMap = {
-                ["Adept Rider"] = 2,
-                ["Aetherial Ascension"] = 3,
-                ["Alessia's Bulwark"] = 4,
-                ["Ancient Dragonguard"] = 5,
-                ["Armor Master"] = 6,
-                ["Armor of the Seducer"] = 7,
-                ["Ashen Grip"] = 8,
-                ["Assassin's Guile"] = 9,
-                ["Chimera's Rebuke"] = 10,
-                ["Claw of the Forest Wraith"] = 11,
-                ["Clever Alchemist"] = 12,
-                ["Coldharbour's Favorite"] = 13,
-                ["Critical Riposte"] = 14,
-                ["Daedric Trickery"] = 15,
-                ["Daring Corsair"] = 16,
-                ["Dauntless Combatant"] = 17,
-                ["Deadlands Demolisher"] = 18,
-                ["Deadth's Wind"] = 19,
-                ["Diamond's Victory"] = 20,
-                ["Dragon's Appetite"] = 21,
-                ["Druid's Braid"] = 22,
-                ["Eternal Hunt"] = 23,
-                ["Eyes of Mara"] = 24,
-                ["Fortified Brass"] = 25,
-                ["Grave-Stake Collector"] = 26,
-                ["Heartland Conqueror"] = 27,
-                ["Hist Bark"] = 28,
-                ["Hist Whisperer"] = 29,
-                ["Hunding's Rage"] = 30,
-                ["Innate Axiom"] = 31,
-                ["Iron Flask"] = 32,
-                ["Kagrenac's Hope"] = 33,
-                ["Kvatch Gladiator"] = 34,
-                ["Law of Julianos"] = 35,
-                ["Legacy of Karth"] = 36,
-                ["Magnus' Gift"] = 37,
-                ["Mechanical Acuity"] = 38,
-                ["Might of the Lost Legion"] = 39,
-                ["Morkuldin"] = 40,
-                ["Naga Shaman"] = 41,
-                ["New Moon Acolyte"] = 42,
-                ["Night Mother's Gaze"] = 43,
-                ["Night's Silence"] = 44,
-                ["Noble's Conquest"] = 45,
-                ["Nocturnal's Favor"] = 46,
-                ["Oblivion's Foe"] = 47,
-                ["Old Growth Brewer"] = 48,
-                ["Order's Wrath"] = 49,
-                ["Orgnum's Scales"] = 50,
-                ["Pelinal's Wrath"] = 51,
-                ["Red Eagle's Fury"] = 52,
-                ["Redistributor"] = 53,
-                ["Seeker Synthesis"] = 54,
-                ["Senche-Raht's Grit"] = 55,
-                ["Serpent's Disdain"] = 56,
-                ["Shacklbreaker"] = 57,
-                ["Shalidor's Curse"] = 58,
-                ["Shattered Fate"] = 59,
-                ["Sload's Semblance"] = 60,
-                ["Song of Lamae"] = 61,
-                ["Specter's Eye"] = 62,
-                ["Spell Parasite"] = 63,
-                ["Stuhn's Favor"] = 64,
-                ["Tava's Favor"] = 65,
-                ["Telvanni Efficiency"] = 66,
-                ["Torug's Pact"] = 67,
-                ["Trial by Fire"] = 68,
-                ["Twice-Born Star"] = 69,
-                ["Twilight's Embrace"] = 70,
-                ["Unchained Aggressor"] = 71,
-                ["Vampire's Kiss"] = 72,
-                ["Varen's Legacy"] = 73,
-                ["Vastarie's Tutelage"] = 74,
-                ["Way of the Arena"] = 75,
-                ["Whitestrake's Retribution"] = 76,
-                ["Willow's Path"] = 77,
-                ["Wretched Vitality"] = 78
+                ["No Set"] = 2,
+                ["Adept Rider"] = 3,
+                ["Aetherial Ascension"] = 4,
+                ["Alessia's Bulwark"] = 5,
+                ["Ancient Dragonguard"] = 6,
+                ["Armor Master"] = 7,
+                ["Armor of the Seducer"] = 8,
+                ["Ashen Grip"] = 9,
+                ["Assassin's Guile"] = 10,
+                ["Chimera's Rebuke"] = 11,
+                ["Claw of the Forest Wraith"] = 12,
+                ["Clever Alchemist"] = 13,
+                ["Coldharbour's Favorite"] = 14,
+                ["Critical Riposte"] = 15,
+                ["Daedric Trickery"] = 16,
+                ["Daring Corsair"] = 17,
+                ["Dauntless Combatant"] = 18,
+                ["Deadlands Demolisher"] = 19,
+                ["Deadth's Wind"] = 20,
+                ["Diamond's Victory"] = 21,
+                ["Dragon's Appetite"] = 22,
+                ["Druid's Braid"] = 23,
+                ["Eternal Hunt"] = 24,
+                ["Eyes of Mara"] = 25,
+                ["Fortified Brass"] = 26,
+                ["Grave-Stake Collector"] = 27,
+                ["Heartland Conqueror"] = 28,
+                ["Hist Bark"] = 29,
+                ["Hist Whisperer"] = 30,
+                ["Hunding's Rage"] = 31,
+                ["Innate Axiom"] = 32,
+                ["Iron Flask"] = 33,
+                ["Kagrenac's Hope"] = 34,
+                ["Kvatch Gladiator"] = 35,
+                ["Law of Julianos"] = 36,
+                ["Legacy of Karth"] = 37,
+                ["Magnus' Gift"] = 38,
+                ["Mechanical Acuity"] = 39,
+                ["Might of the Lost Legion"] = 40,
+                ["Morkuldin"] = 41,
+                ["Naga Shaman"] = 42,
+                ["New Moon Acolyte"] = 43,
+                ["Night Mother's Gaze"] = 44,
+                ["Night's Silence"] = 45,
+                ["Noble's Conquest"] = 46,
+                ["Nocturnal's Favor"] = 47,
+                ["Oblivion's Foe"] = 48,
+                ["Old Growth Brewer"] = 49,
+                ["Order's Wrath"] = 50,
+                ["Orgnum's Scales"] = 51,
+                ["Pelinal's Wrath"] = 52,
+                ["Red Eagle's Fury"] = 53,
+                ["Redistributor"] = 54,
+                ["Seeker Synthesis"] = 55,
+                ["Senche-Raht's Grit"] = 56,
+                ["Serpent's Disdain"] = 57,
+                ["Shacklbreaker"] = 58,
+                ["Shalidor's Curse"] = 59,
+                ["Shattered Fate"] = 60,
+                ["Sload's Semblance"] = 61,
+                ["Song of Lamae"] = 62,
+                ["Specter's Eye"] = 63,
+                ["Spell Parasite"] = 64,
+                ["Stuhn's Favor"] = 65,
+                ["Tava's Favor"] = 66,
+                ["Telvanni Efficiency"] = 67,
+                ["Torug's Pact"] = 68,
+                ["Trial by Fire"] = 69,
+                ["Twice-Born Star"] = 70,
+                ["Twilight's Embrace"] = 71,
+                ["Unchained Aggressor"] = 72,
+                ["Vampire's Kiss"] = 73,
+                ["Varen's Legacy"] = 74,
+                ["Vastarie's Tutelage"] = 75,
+                ["Way of the Arena"] = 76,
+                ["Whitestrake's Retribution"] = 77,
+                ["Willow's Path"] = 78,
+                ["Wretched Vitality"] = 79
             }
             OogleCraftSet1ListDrop.dropdown:SetSelectedItem(choices[indexMap[set1List] or 1])
         else
@@ -249,6 +246,8 @@ local function createSet2ListDropdown(oogleCraftDropdownFrameName, choices, xOff
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -259,83 +258,84 @@ local function createSet2ListDropdown(oogleCraftDropdownFrameName, choices, xOff
         if OogleCraft.savedVariables.desiredInfo.Set2List then
             local set2List = OogleCraft.savedVariables.desiredInfo.Set2List[1]
             local indexMap = {
-                ["Adept Rider"] = 2,
-                ["Aetherial Ascension"] = 3,
-                ["Alessia's Bulwark"] = 4,
-                ["Ancient Dragonguard"] = 5,
-                ["Armor Master"] = 6,
-                ["Armor of the Seducer"] = 7,
-                ["Ashen Grip"] = 8,
-                ["Assassin's Guile"] = 9,
-                ["Chimera's Rebuke"] = 10,
-                ["Claw of the Forest Wraith"] = 11,
-                ["Clever Alchemist"] = 12,
-                ["Coldharbour's Favorite"] = 13,
-                ["Critical Riposte"] = 14,
-                ["Daedric Trickery"] = 15,
-                ["Daring Corsair"] = 16,
-                ["Dauntless Combatant"] = 17,
-                ["Deadlands Demolisher"] = 18,
-                ["Deadth's Wind"] = 19,
-                ["Diamond's Victory"] = 20,
-                ["Dragon's Appetite"] = 21,
-                ["Druid's Braid"] = 22,
-                ["Eternal Hunt"] = 23,
-                ["Eyes of Mara"] = 24,
-                ["Fortified Brass"] = 25,
-                ["Grave-Stake Collector"] = 26,
-                ["Heartland Conqueror"] = 27,
-                ["Hist Bark"] = 28,
-                ["Hist Whisperer"] = 29,
-                ["Hunding's Rage"] = 30,
-                ["Innate Axiom"] = 31,
-                ["Iron Flask"] = 32,
-                ["Kagrenac's Hope"] = 33,
-                ["Kvatch Gladiator"] = 34,
-                ["Law of Julianos"] = 35,
-                ["Legacy of Karth"] = 36,
-                ["Magnus' Gift"] = 37,
-                ["Mechanical Acuity"] = 38,
-                ["Might of the Lost Legion"] = 39,
-                ["Morkuldin"] = 40,
-                ["Naga Shaman"] = 41,
-                ["New Moon Acolyte"] = 42,
-                ["Night Mother's Gaze"] = 43,
-                ["Night's Silence"] = 44,
-                ["Noble's Conquest"] = 45,
-                ["Nocturnal's Favor"] = 46,
-                ["Oblivion's Foe"] = 47,
-                ["Old Growth Brewer"] = 48,
-                ["Order's Wrath"] = 49,
-                ["Orgnum's Scales"] = 50,
-                ["Pelinal's Wrath"] = 51,
-                ["Red Eagle's Fury"] = 52,
-                ["Redistributor"] = 53,
-                ["Seeker Synthesis"] = 54,
-                ["Senche-Raht's Grit"] = 55,
-                ["Serpent's Disdain"] = 56,
-                ["Shacklbreaker"] = 57,
-                ["Shalidor's Curse"] = 58,
-                ["Shattered Fate"] = 59,
-                ["Sload's Semblance"] = 60,
-                ["Song of Lamae"] = 61,
-                ["Specter's Eye"] = 62,
-                ["Spell Parasite"] = 63,
-                ["Stuhn's Favor"] = 64,
-                ["Tava's Favor"] = 65,
-                ["Telvanni Efficiency"] = 66,
-                ["Torug's Pact"] = 67,
-                ["Trial by Fire"] = 68,
-                ["Twice-Born Star"] = 69,
-                ["Twilight's Embrace"] = 70,
-                ["Unchained Aggressor"] = 71,
-                ["Vampire's Kiss"] = 72,
-                ["Varen's Legacy"] = 73,
-                ["Vastarie's Tutelage"] = 74,
-                ["Way of the Arena"] = 75,
-                ["Whitestrake's Retribution"] = 76,
-                ["Willow's Path"] = 77,
-                ["Wretched Vitality"] = 78
+                ["No Set"] = 2,
+                ["Adept Rider"] = 3,
+                ["Aetherial Ascension"] = 4,
+                ["Alessia's Bulwark"] = 5,
+                ["Ancient Dragonguard"] = 6,
+                ["Armor Master"] = 7,
+                ["Armor of the Seducer"] = 8,
+                ["Ashen Grip"] = 9,
+                ["Assassin's Guile"] = 10,
+                ["Chimera's Rebuke"] = 11,
+                ["Claw of the Forest Wraith"] = 12,
+                ["Clever Alchemist"] = 13,
+                ["Coldharbour's Favorite"] = 14,
+                ["Critical Riposte"] = 15,
+                ["Daedric Trickery"] = 16,
+                ["Daring Corsair"] = 17,
+                ["Dauntless Combatant"] = 18,
+                ["Deadlands Demolisher"] = 19,
+                ["Deadth's Wind"] = 20,
+                ["Diamond's Victory"] = 21,
+                ["Dragon's Appetite"] = 22,
+                ["Druid's Braid"] = 23,
+                ["Eternal Hunt"] = 24,
+                ["Eyes of Mara"] = 25,
+                ["Fortified Brass"] = 26,
+                ["Grave-Stake Collector"] = 27,
+                ["Heartland Conqueror"] = 28,
+                ["Hist Bark"] = 29,
+                ["Hist Whisperer"] = 30,
+                ["Hunding's Rage"] = 31,
+                ["Innate Axiom"] = 32,
+                ["Iron Flask"] = 33,
+                ["Kagrenac's Hope"] = 34,
+                ["Kvatch Gladiator"] = 35,
+                ["Law of Julianos"] = 36,
+                ["Legacy of Karth"] = 37,
+                ["Magnus' Gift"] = 38,
+                ["Mechanical Acuity"] = 39,
+                ["Might of the Lost Legion"] = 40,
+                ["Morkuldin"] = 41,
+                ["Naga Shaman"] = 42,
+                ["New Moon Acolyte"] = 43,
+                ["Night Mother's Gaze"] = 44,
+                ["Night's Silence"] = 45,
+                ["Noble's Conquest"] = 46,
+                ["Nocturnal's Favor"] = 47,
+                ["Oblivion's Foe"] = 48,
+                ["Old Growth Brewer"] = 49,
+                ["Order's Wrath"] = 50,
+                ["Orgnum's Scales"] = 51,
+                ["Pelinal's Wrath"] = 52,
+                ["Red Eagle's Fury"] = 53,
+                ["Redistributor"] = 54,
+                ["Seeker Synthesis"] = 55,
+                ["Senche-Raht's Grit"] = 56,
+                ["Serpent's Disdain"] = 57,
+                ["Shacklbreaker"] = 58,
+                ["Shalidor's Curse"] = 59,
+                ["Shattered Fate"] = 60,
+                ["Sload's Semblance"] = 61,
+                ["Song of Lamae"] = 62,
+                ["Specter's Eye"] = 63,
+                ["Spell Parasite"] = 64,
+                ["Stuhn's Favor"] = 65,
+                ["Tava's Favor"] = 66,
+                ["Telvanni Efficiency"] = 67,
+                ["Torug's Pact"] = 68,
+                ["Trial by Fire"] = 69,
+                ["Twice-Born Star"] = 70,
+                ["Twilight's Embrace"] = 71,
+                ["Unchained Aggressor"] = 72,
+                ["Vampire's Kiss"] = 73,
+                ["Varen's Legacy"] = 74,
+                ["Vastarie's Tutelage"] = 75,
+                ["Way of the Arena"] = 76,
+                ["Whitestrake's Retribution"] = 77,
+                ["Willow's Path"] = 78,
+                ["Wretched Vitality"] = 79
             }
             OogleCraftSet2ListDrop.dropdown:SetSelectedItem(choices[indexMap[set2List] or 1])
         else
@@ -366,6 +366,8 @@ local function createSet3ListDropdown(oogleCraftDropdownFrameName, choices, xOff
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -376,83 +378,84 @@ local function createSet3ListDropdown(oogleCraftDropdownFrameName, choices, xOff
         if OogleCraft.savedVariables.desiredInfo.Set3List then
             local set3List = OogleCraft.savedVariables.desiredInfo.Set3List[1]
             local indexMap = {
-                ["Adept Rider"] = 2,
-                ["Aetherial Ascension"] = 3,
-                ["Alessia's Bulwark"] = 4,
-                ["Ancient Dragonguard"] = 5,
-                ["Armor Master"] = 6,
-                ["Armor of the Seducer"] = 7,
-                ["Ashen Grip"] = 8,
-                ["Assassin's Guile"] = 9,
-                ["Chimera's Rebuke"] = 10,
-                ["Claw of the Forest Wraith"] = 11,
-                ["Clever Alchemist"] = 12,
-                ["Coldharbour's Favorite"] = 13,
-                ["Critical Riposte"] = 14,
-                ["Daedric Trickery"] = 15,
-                ["Daring Corsair"] = 16,
-                ["Dauntless Combatant"] = 17,
-                ["Deadlands Demolisher"] = 18,
-                ["Deadth's Wind"] = 19,
-                ["Diamond's Victory"] = 20,
-                ["Dragon's Appetite"] = 21,
-                ["Druid's Braid"] = 22,
-                ["Eternal Hunt"] = 23,
-                ["Eyes of Mara"] = 24,
-                ["Fortified Brass"] = 25,
-                ["Grave-Stake Collector"] = 26,
-                ["Heartland Conqueror"] = 27,
-                ["Hist Bark"] = 28,
-                ["Hist Whisperer"] = 29,
-                ["Hunding's Rage"] = 30,
-                ["Innate Axiom"] = 31,
-                ["Iron Flask"] = 32,
-                ["Kagrenac's Hope"] = 33,
-                ["Kvatch Gladiator"] = 34,
-                ["Law of Julianos"] = 35,
-                ["Legacy of Karth"] = 36,
-                ["Magnus' Gift"] = 37,
-                ["Mechanical Acuity"] = 38,
-                ["Might of the Lost Legion"] = 39,
-                ["Morkuldin"] = 40,
-                ["Naga Shaman"] = 41,
-                ["New Moon Acolyte"] = 42,
-                ["Night Mother's Gaze"] = 43,
-                ["Night's Silence"] = 44,
-                ["Noble's Conquest"] = 45,
-                ["Nocturnal's Favor"] = 46,
-                ["Oblivion's Foe"] = 47,
-                ["Old Growth Brewer"] = 48,
-                ["Order's Wrath"] = 49,
-                ["Orgnum's Scales"] = 50,
-                ["Pelinal's Wrath"] = 51,
-                ["Red Eagle's Fury"] = 52,
-                ["Redistributor"] = 53,
-                ["Seeker Synthesis"] = 54,
-                ["Senche-Raht's Grit"] = 55,
-                ["Serpent's Disdain"] = 56,
-                ["Shacklbreaker"] = 57,
-                ["Shalidor's Curse"] = 58,
-                ["Shattered Fate"] = 59,
-                ["Sload's Semblance"] = 60,
-                ["Song of Lamae"] = 61,
-                ["Specter's Eye"] = 62,
-                ["Spell Parasite"] = 63,
-                ["Stuhn's Favor"] = 64,
-                ["Tava's Favor"] = 65,
-                ["Telvanni Efficiency"] = 66,
-                ["Torug's Pact"] = 67,
-                ["Trial by Fire"] = 68,
-                ["Twice-Born Star"] = 69,
-                ["Twilight's Embrace"] = 70,
-                ["Unchained Aggressor"] = 71,
-                ["Vampire's Kiss"] = 72,
-                ["Varen's Legacy"] = 73,
-                ["Vastarie's Tutelage"] = 74,
-                ["Way of the Arena"] = 75,
-                ["Whitestrake's Retribution"] = 76,
-                ["Willow's Path"] = 77,
-                ["Wretched Vitality"] = 78
+                ["No Set"] = 2,
+                ["Adept Rider"] = 3,
+                ["Aetherial Ascension"] = 4,
+                ["Alessia's Bulwark"] = 5,
+                ["Ancient Dragonguard"] = 6,
+                ["Armor Master"] = 7,
+                ["Armor of the Seducer"] = 8,
+                ["Ashen Grip"] = 9,
+                ["Assassin's Guile"] = 10,
+                ["Chimera's Rebuke"] = 11,
+                ["Claw of the Forest Wraith"] = 12,
+                ["Clever Alchemist"] = 13,
+                ["Coldharbour's Favorite"] = 14,
+                ["Critical Riposte"] = 15,
+                ["Daedric Trickery"] = 16,
+                ["Daring Corsair"] = 17,
+                ["Dauntless Combatant"] = 18,
+                ["Deadlands Demolisher"] = 19,
+                ["Deadth's Wind"] = 20,
+                ["Diamond's Victory"] = 21,
+                ["Dragon's Appetite"] = 22,
+                ["Druid's Braid"] = 23,
+                ["Eternal Hunt"] = 24,
+                ["Eyes of Mara"] = 25,
+                ["Fortified Brass"] = 26,
+                ["Grave-Stake Collector"] = 27,
+                ["Heartland Conqueror"] = 28,
+                ["Hist Bark"] = 29,
+                ["Hist Whisperer"] = 30,
+                ["Hunding's Rage"] = 31,
+                ["Innate Axiom"] = 32,
+                ["Iron Flask"] = 33,
+                ["Kagrenac's Hope"] = 34,
+                ["Kvatch Gladiator"] = 35,
+                ["Law of Julianos"] = 36,
+                ["Legacy of Karth"] = 37,
+                ["Magnus' Gift"] = 38,
+                ["Mechanical Acuity"] = 39,
+                ["Might of the Lost Legion"] = 40,
+                ["Morkuldin"] = 41,
+                ["Naga Shaman"] = 42,
+                ["New Moon Acolyte"] = 43,
+                ["Night Mother's Gaze"] = 44,
+                ["Night's Silence"] = 45,
+                ["Noble's Conquest"] = 46,
+                ["Nocturnal's Favor"] = 47,
+                ["Oblivion's Foe"] = 48,
+                ["Old Growth Brewer"] = 49,
+                ["Order's Wrath"] = 50,
+                ["Orgnum's Scales"] = 51,
+                ["Pelinal's Wrath"] = 52,
+                ["Red Eagle's Fury"] = 53,
+                ["Redistributor"] = 54,
+                ["Seeker Synthesis"] = 55,
+                ["Senche-Raht's Grit"] = 56,
+                ["Serpent's Disdain"] = 57,
+                ["Shacklbreaker"] = 58,
+                ["Shalidor's Curse"] = 59,
+                ["Shattered Fate"] = 60,
+                ["Sload's Semblance"] = 61,
+                ["Song of Lamae"] = 62,
+                ["Specter's Eye"] = 63,
+                ["Spell Parasite"] = 64,
+                ["Stuhn's Favor"] = 65,
+                ["Tava's Favor"] = 66,
+                ["Telvanni Efficiency"] = 67,
+                ["Torug's Pact"] = 68,
+                ["Trial by Fire"] = 69,
+                ["Twice-Born Star"] = 70,
+                ["Twilight's Embrace"] = 71,
+                ["Unchained Aggressor"] = 72,
+                ["Vampire's Kiss"] = 73,
+                ["Varen's Legacy"] = 74,
+                ["Vastarie's Tutelage"] = 75,
+                ["Way of the Arena"] = 76,
+                ["Whitestrake's Retribution"] = 77,
+                ["Willow's Path"] = 78,
+                ["Wretched Vitality"] = 79
             }
             OogleCraftSet3ListDrop.dropdown:SetSelectedItem(choices[indexMap[set3List] or 1])
         else
@@ -483,6 +486,8 @@ local function createStyleListDropdown(oogleCraftDropdownFrameName, choices, xOf
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -648,9 +653,129 @@ end
 
 function OogleCraft.addToQueue(oogleCraftButtonFrameName)
     OogleCraft.addToQueueFunctionality(oogleCraftButtonFrameName)
+
+    --d(oogleCraftButtonFrameName)
+    if oogleCraftButtonFrameName == "ShieldQueue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.shieldPattern, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setShieldTrait, false, OogleCraft.shieldCraftingOverride, OogleCraft.setShieldNumber, OogleCraft.desiredArmorQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.shieldPattern, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setShieldTrait, false, OogleCraft.shieldCraftingOverride, OogleCraft.setShieldNumber, OogleCraft.desiredArmorQuality, true, nil, OogleCraft.setShieldPotencyIndex, OogleCraft.setShieldEssenceIndex, OogleCraft.desiredArmorEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "ChestQueue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setChestWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setChestTrait, false, OogleCraft.setChestCraftingOverride, OogleCraft.setChestNumber, OogleCraft.desiredArmorQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setChestWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setChestTrait, false, OogleCraft.setChestCraftingOverride, OogleCraft.setChestNumber, OogleCraft.desiredArmorQuality, true, nil, OogleCraft.setChestPotencyIndex, OogleCraft.setChestEssenceIndex, OogleCraft.desiredArmorEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "FeetQueue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setFeetWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setFeetTrait, false, OogleCraft.setFeetCraftingOverride, OogleCraft.setFeetNumber, OogleCraft.desiredArmorQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setFeetWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setFeetTrait, false, OogleCraft.setFeetCraftingOverride, OogleCraft.setFeetNumber, OogleCraft.desiredArmorQuality, true, nil, OogleCraft.setFeetPotencyIndex, OogleCraft.setFeetEssenceIndex, OogleCraft.desiredArmorEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "HandsQueue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setHandsWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setHandsTrait, false, OogleCraft.setHandsCraftingOverride, OogleCraft.setHandsNumber, OogleCraft.desiredArmorQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setHandsWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setHandsTrait, false, OogleCraft.setHandsCraftingOverride, OogleCraft.setHandsNumber, OogleCraft.desiredArmorQuality, true, nil, OogleCraft.setHandsPotencyIndex, OogleCraft.setHandsEssenceIndex, OogleCraft.desiredArmorEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "LegsQueue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setLegsWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setLegsTrait, false, OogleCraft.setLegsCraftingOverride, OogleCraft.setLegsNumber, OogleCraft.desiredArmorQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setLegsWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setLegsTrait, false, OogleCraft.setLegsCraftingOverride, OogleCraft.setLegsNumber, OogleCraft.desiredArmorQuality, true, nil, OogleCraft.setLegsPotencyIndex, OogleCraft.setLegsEssenceIndex, OogleCraft.desiredArmorEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "WaistQueue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setWaistWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setWaistTrait, false, OogleCraft.setWaistCraftingOverride, OogleCraft.setWaistNumber, OogleCraft.desiredArmorQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setWaistWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setWaistTrait, false, OogleCraft.setWaistCraftingOverride, OogleCraft.setWaistNumber, OogleCraft.desiredArmorQuality, true, nil, OogleCraft.setWaistPotencyIndex, OogleCraft.setWaistEssenceIndex, OogleCraft.desiredArmorEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "HeadQueue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setHeadWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setHeadTrait, false, OogleCraft.setHeadCraftingOverride, OogleCraft.setHeadNumber, OogleCraft.desiredArmorQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setHeadWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setHeadTrait, false, OogleCraft.setHeadCraftingOverride, OogleCraft.setHeadNumber, OogleCraft.desiredArmorQuality, true, nil, OogleCraft.setHeadPotencyIndex, OogleCraft.setHeadEssenceIndex, OogleCraft.desiredArmorEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "ShouldersQueue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setShouldersWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setShouldersTrait, false, OogleCraft.setShouldersCraftingOverride, OogleCraft.setShouldersNumber, OogleCraft.desiredArmorQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setShouldersWeight, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setShouldersTrait, false, OogleCraft.setShouldersCraftingOverride, OogleCraft.setShouldersNumber, OogleCraft.desiredArmorQuality, true, nil, OogleCraft.setShouldersPotencyIndex, OogleCraft.setShouldersEssenceIndex, OogleCraft.desiredArmorEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "Ring1Queue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.ringPattern, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setRing1Trait, false, OogleCraft.ringCraftingOverride, OogleCraft.setRing1Number, OogleCraft.desiredJewelryQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.ringPattern, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setRing1Trait, false, OogleCraft.ringCraftingOverride, OogleCraft.setRing1Number, OogleCraft.desiredJewelryQuality, true, nil, OogleCraft.setRing1PotencyIndex, OogleCraft.setRing1EssenceIndex, OogleCraft.desiredJewelryEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "Ring2Queue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.ringPattern, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setRing2Trait, false, OogleCraft.ringCraftingOverride, OogleCraft.setRing2Number, OogleCraft.desiredJewelryQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.ringPattern, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setRing2Trait, false, OogleCraft.ringCraftingOverride, OogleCraft.setRing2Number, OogleCraft.desiredJewelryQuality, true, nil, OogleCraft.setRing2PotencyIndex, OogleCraft.setRing2EssenceIndex, OogleCraft.desiredJewelryEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "NecklaceQueue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.necklacePattern, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setNecklaceTrait, false, OogleCraft.necklaceCraftingOverride, OogleCraft.setNecklaceNumber, OogleCraft.desiredJewelryQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.necklacePattern, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setNecklaceTrait, false, OogleCraft.necklaceCraftingOverride, OogleCraft.setNecklaceNumber, OogleCraft.desiredJewelryQuality, true, nil, OogleCraft.setNecklacePotencyIndex, OogleCraft.setNecklaceEssenceIndex, OogleCraft.desiredJewelryEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "FrontBar1Queue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setFB1Type, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setFB1Trait, false, OogleCraft.setFB1CraftingOverride, OogleCraft.setFB1Number, OogleCraft.desiredWeaponQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setFB1Type, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setFB1Trait, false, OogleCraft.setFB1CraftingOverride, OogleCraft.setFB1Number, OogleCraft.desiredWeaponQuality, true, nil, OogleCraft.setFB1PotencyIndex, OogleCraft.setFB1EssenceIndex, OogleCraft.desiredWeaponEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "FrontBar2Queue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setFB2Type, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setFB2Trait, false, OogleCraft.setFB2CraftingOverride, OogleCraft.setFB2Number, OogleCraft.desiredWeaponQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setFB2Type, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setFB2Trait, false, OogleCraft.setFB2CraftingOverride, OogleCraft.setFB2Number, OogleCraft.desiredWeaponQuality, true, nil, OogleCraft.setFB2PotencyIndex, OogleCraft.setFB2EssenceIndex, OogleCraft.desiredWeaponEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "BackBar1Queue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setBB1Type, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setBB1Trait, false, OogleCraft.setBB1CraftingOverride, OogleCraft.setBB1Number, OogleCraft.desiredWeaponQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setBB1Type, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setBB1Trait, false, OogleCraft.setBB1CraftingOverride, OogleCraft.setBB1Number, OogleCraft.desiredWeaponQuality, true, nil, OogleCraft.setBB1PotencyIndex, OogleCraft.setBB1EssenceIndex, OogleCraft.desiredWeaponEnchantQuality, 1)
+        end
+    end
+    if oogleCraftButtonFrameName == "BackBar2Queue" then
+        OogleCraft.setAllGlobals()
+        if OogleCraft.desiredArmorEnchantQuality == nil then
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setBB2Type, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setBB2Trait, false, OogleCraft.setBB2CraftingOverride, OogleCraft.setBB2Number, OogleCraft.desiredWeaponQuality, true, nil, nil, nil, nil, 1)
+        else
+            OogleCraft.LLC:CraftSmithingItemByLevel(OogleCraft.setBB2Type, OogleCraft.isCP, OogleCraft.desiredLevel, OogleCraft.desiredStyleName, OogleCraft.setBB2Trait, false, OogleCraft.setBB2CraftingOverride, OogleCraft.setBB2Number, OogleCraft.desiredWeaponQuality, true, nil, OogleCraft.setBB2PotencyIndex, OogleCraft.setBB2EssenceIndex, OogleCraft.desiredWeaponEnchantQuality, 1)
+        end
+    end
 end
-
-
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --- Dropdowns ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -684,6 +809,7 @@ local OogleCraftLvlChoices = {
 
 local OogleCraftSet1ListChoices = {
     "[Set #1]",
+    "No Set",
     "Adept Rider",
     "Aetherial Ascension",
     "Alessia's Bulwark",
@@ -765,6 +891,7 @@ local OogleCraftSet1ListChoices = {
 
 local OogleCraftSet2ListChoices = {
     "[Set #2]",
+    "No Set",
     "Adept Rider",
     "Aetherial Ascension",
     "Alessia's Bulwark",
@@ -846,6 +973,7 @@ local OogleCraftSet2ListChoices = {
 
 local OogleCraftSet3ListChoices = {
     "[Set #3]",
+    "No Set",
     "Adept Rider",
     "Aetherial Ascension",
     "Alessia's Bulwark",
