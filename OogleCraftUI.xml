@@ -19,7 +19,7 @@
 			</Controls>
         </TopLevelControl>
 
-        <TopLevelControl name="OogleCraftMainPanel" mouseEnabled="true" movable="true" clampedToScreen="true" hidden="false">
+        <TopLevelControl name="OogleCraftMainPanel" mouseEnabled="true" movable="true" clampedToScreen="true" hidden="true">
             <Dimensions x="1214" y="357"/>
             <Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="TOPLEFT" offsetX="0" offsetY="0"/>
             
