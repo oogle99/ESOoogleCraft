@@ -45,6 +45,8 @@ local function createJewelrySetQualityDropdown(oogleCraftDropdownFrameName, choi
 
         -- Store the selected item in the table corresponding to the current dropdown frame
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
 
     -- Populate the dropdown with entries, I have no idea how loops work, so this just works
@@ -68,8 +70,7 @@ local function createJewelrySetQualityDropdown(oogleCraftDropdownFrameName, choi
                 Green = 3,
                 Blue = 4,
                 Purple = 5,
-                Yellow = 6,
-                Orange = 7
+                Yellow = 6
             }
             -- I need the specific dropdown name or else it don't work
             -- Set the selection to the corresponding dropdown based on the indexMap and what's in the savedVariables
@@ -107,6 +108,8 @@ local function createJewelrySetNumberDropdown(oogleCraftDropdownFrameName, choic
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -180,6 +183,8 @@ local function createJewelryTraitDropdown(oogleCraftDropdownFrameName, choices, 
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -190,15 +195,16 @@ local function createJewelryTraitDropdown(oogleCraftDropdownFrameName, choices, 
         if OogleCraft.savedVariables.desiredInfo.TraitRing1 then
             local traitRing1 = OogleCraft.savedVariables.desiredInfo.TraitRing1[1]
             local indexMap = {
-                ["Arcane"] = 2,
-                ["Healthy"] = 3,
-                ["Robust"] = 4,
-                ["Triune"] = 5,
-                ["Infused"] = 6,
-                ["Protective"] = 7,
-                ["Swift"] = 8,
-                ["Harmony"] = 9,
-                ["Bloodthirsty"] = 10
+                ["None"] = 2,
+                ["Arcane"] = 3,
+                ["Healthy"] = 4,
+                ["Robust"] = 5,
+                ["Triune"] = 6,
+                ["Infused"] = 7,
+                ["Protective"] = 8,
+                ["Swift"] = 9,
+                ["Harmony"] = 10,
+                ["Bloodthirsty"] = 11
             }
             OogleCraftJewelryTraitRing1Drop.dropdown:SetSelectedItem(choices[indexMap[traitRing1] or 1])
         else
@@ -210,15 +216,16 @@ local function createJewelryTraitDropdown(oogleCraftDropdownFrameName, choices, 
         if OogleCraft.savedVariables.desiredInfo.TraitRing2 then
             local traitRing2 = OogleCraft.savedVariables.desiredInfo.TraitRing2[1]
             local indexMap = {
-                ["Arcane"] = 2,
-                ["Healthy"] = 3,
-                ["Robust"] = 4,
-                ["Triune"] = 5,
-                ["Infused"] = 6,
-                ["Protective"] = 7,
-                ["Swift"] = 8,
-                ["Harmony"] = 9,
-                ["Bloodthirsty"] = 10
+                ["None"] = 2,
+                ["Arcane"] = 3,
+                ["Healthy"] = 4,
+                ["Robust"] = 5,
+                ["Triune"] = 6,
+                ["Infused"] = 7,
+                ["Protective"] = 8,
+                ["Swift"] = 9,
+                ["Harmony"] = 10,
+                ["Bloodthirsty"] = 11
             }
             OogleCraftJewelryTraitRing2Drop.dropdown:SetSelectedItem(choices[indexMap[traitRing2] or 1])
         else
@@ -230,15 +237,16 @@ local function createJewelryTraitDropdown(oogleCraftDropdownFrameName, choices, 
         if OogleCraft.savedVariables.desiredInfo.TraitNecklace then
             local traitNecklace = OogleCraft.savedVariables.desiredInfo.TraitNecklace[1]
             local indexMap = {
-                ["Arcane"] = 2,
-                ["Healthy"] = 3,
-                ["Robust"] = 4,
-                ["Triune"] = 5,
-                ["Infused"] = 6,
-                ["Protective"] = 7,
-                ["Swift"] = 8,
-                ["Harmony"] = 9,
-                ["Bloodthirsty"] = 10
+                ["None"] = 2,
+                ["Arcane"] = 3,
+                ["Healthy"] = 4,
+                ["Robust"] = 5,
+                ["Triune"] = 6,
+                ["Infused"] = 7,
+                ["Protective"] = 8,
+                ["Swift"] = 9,
+                ["Harmony"] = 10,
+                ["Bloodthirsty"] = 11
             }
             OogleCraftJewelryTraitNecklaceDrop.dropdown:SetSelectedItem(choices[indexMap[traitNecklace] or 1])
         else
@@ -271,6 +279,8 @@ local function createJewelryEnchantQualityDropdown(oogleCraftDropdownFrameName, 
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -281,12 +291,12 @@ local function createJewelryEnchantQualityDropdown(oogleCraftDropdownFrameName, 
         if OogleCraft.savedVariables.desiredInfo.JewelryEnchantQuality then
             local jewelryEnchantQuality = OogleCraft.savedVariables.desiredInfo.JewelryEnchantQuality[1]
             local indexMap = {
-                White = 2,
-                Green = 3,
-                Blue = 4,
-                Purple = 5,
-                Yellow = 6,
-                Orange = 7
+                None = 2,
+                White = 3,
+                Green = 4,
+                Blue = 5,
+                Purple = 6,
+                Yellow = 7
             }
             OogleCraftJewelryJewelryEnchantQualityDrop.dropdown:SetSelectedItem(choices[indexMap[jewelryEnchantQuality] or 1])
         else
@@ -317,6 +327,8 @@ local function createJewelryEnchantDropdown(oogleCraftDropdownFrameName, choices
             end
         end
         table.insert(OogleCraft.savedVariables.desiredInfo[oogleCraftDropdownFrameName], choiceText)
+
+        OogleCraft.setAllGlobals()
     end
     for i=1,#choices do
         local entry = dropdown:CreateItemEntry(choices[i], OnItemSelect)
@@ -327,27 +339,26 @@ local function createJewelryEnchantDropdown(oogleCraftDropdownFrameName, choices
         if OogleCraft.savedVariables.desiredInfo.EnchantRing1 then
             local enchantRing1 = OogleCraft.savedVariables.desiredInfo.EnchantRing1[1]
             local indexMap = {
-                 ["None"] = 2,
-                 ["Health Recovery"] = 3,
-                 ["Reduce Spell Cost"] = 4,
-                 ["Magicka Recovery"] = 5,
-                 ["Reduce Feat Cost"] = 6,
-                 ["Stamina Recovery"] = 7,
-                 ["Poison Resist"] = 8,
-                 ["Flame Resist"] = 9,
-                 ["Frost Resist"] = 10,
-                 ["Shock Resist"] = 11,
-                 ["Disease Resist"] = 12,
-                 ["Potion Speed"] = 13,
-                 ["Potion Boost"] = 14,
-                 ["Decrease Physical Harm"] = 15,
-                 ["Increase Physical Harm"] = 16,
-                 ["Decrease Spell Harm"] = 17,
-                 ["Increase Magical Harm"] = 18,
-                 ["Shielding"] = 19,
-                 ["Bashing"] = 20,
-                 ["Reduce Skill Cost"] = 21,
-                 ["Prismatic Recovery"] = 22
+                 ["Health Recovery"] = 2,
+                 ["Reduce Spell Cost"] = 3,
+                 ["Magicka Recovery"] = 4,
+                 ["Reduce Feat Cost"] = 5,
+                 ["Stamina Recovery"] = 6,
+                 ["Poison Resist"] = 7,
+                 ["Flame Resist"] = 8,
+                 ["Frost Resist"] = 9,
+                 ["Shock Resist"] = 10,
+                 ["Disease Resist"] = 11,
+                 ["Potion Speed"] = 12,
+                 ["Potion Boost"] = 13,
+                 ["Decrease Physical Harm"] = 14,
+                 ["Increase Physical Harm"] = 15,
+                 ["Decrease Spell Harm"] = 16,
+                 ["Increase Magical Harm"] = 17,
+                 ["Shielding"] = 18,
+                 ["Bashing"] = 19,
+                 ["Reduce Skill Cost"] = 20,
+                 ["Prismatic Recovery"] = 21
             }
             OogleCraftJewelryEnchantRing1Drop.dropdown:SetSelectedItem(choices[indexMap[enchantRing1] or 1])
         else
@@ -359,27 +370,26 @@ local function createJewelryEnchantDropdown(oogleCraftDropdownFrameName, choices
         if OogleCraft.savedVariables.desiredInfo.EnchantRing2 then
             local enchantRing2 = OogleCraft.savedVariables.desiredInfo.EnchantRing2[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Health Recovery"] = 3,
-                ["Reduce Spell Cost"] = 4,
-                ["Magicka Recovery"] = 5,
-                ["Reduce Feat Cost"] = 6,
-                ["Stamina Recovery"] = 7,
-                ["Poison Resist"] = 8,
-                ["Flame Resist"] = 9,
-                ["Frost Resist"] = 10,
-                ["Shock Resist"] = 11,
-                ["Disease Resist"] = 12,
-                ["Potion Speed"] = 13,
-                ["Potion Boost"] = 14,
-                ["Decrease Physical Harm"] = 15,
-                ["Increase Physical Harm"] = 16,
-                ["Decrease Spell Harm"] = 17,
-                ["Increase Magical Harm"] = 18,
-                ["Shielding"] = 19,
-                ["Bashing"] = 20,
-                ["Reduce Skill Cost"] = 21,
-                ["Prismatic Recovery"] = 22
+                ["Health Recovery"] = 2,
+                ["Reduce Spell Cost"] = 3,
+                ["Magicka Recovery"] = 4,
+                ["Reduce Feat Cost"] = 5,
+                ["Stamina Recovery"] = 6,
+                ["Poison Resist"] = 7,
+                ["Flame Resist"] = 8,
+                ["Frost Resist"] = 9,
+                ["Shock Resist"] = 10,
+                ["Disease Resist"] = 11,
+                ["Potion Speed"] = 12,
+                ["Potion Boost"] = 13,
+                ["Decrease Physical Harm"] = 14,
+                ["Increase Physical Harm"] = 15,
+                ["Decrease Spell Harm"] = 16,
+                ["Increase Magical Harm"] = 17,
+                ["Shielding"] = 18,
+                ["Bashing"] = 19,
+                ["Reduce Skill Cost"] = 20,
+                ["Prismatic Recovery"] = 21
            }
             OogleCraftJewelryEnchantRing2Drop.dropdown:SetSelectedItem(choices[indexMap[enchantRing2] or 1])
         else
@@ -391,27 +401,26 @@ local function createJewelryEnchantDropdown(oogleCraftDropdownFrameName, choices
         if OogleCraft.savedVariables.desiredInfo.EnchantNecklace then
             local enchantNecklace = OogleCraft.savedVariables.desiredInfo.EnchantNecklace[1]
             local indexMap = {
-                ["None"] = 2,
-                ["Health Recovery"] = 3,
-                ["Reduce Spell Cost"] = 4,
-                ["Magicka Recovery"] = 5,
-                ["Reduce Feat Cost"] = 6,
-                ["Stamina Recovery"] = 7,
-                ["Poison Resist"] = 8,
-                ["Flame Resist"] = 9,
-                ["Frost Resist"] = 10,
-                ["Shock Resist"] = 11,
-                ["Disease Resist"] = 12,
-                ["Potion Speed"] = 13,
-                ["Potion Boost"] = 14,
-                ["Decrease Physical Harm"] = 15,
-                ["Increase Physical Harm"] = 16,
-                ["Decrease Spell Harm"] = 17,
-                ["Increase Magical Harm"] = 18,
-                ["Shielding"] = 19,
-                ["Bashing"] = 20,
-                ["Reduce Skill Cost"] = 21,
-                ["Prismatic Recovery"] = 22
+                ["Health Recovery"] = 2,
+                ["Reduce Spell Cost"] = 3,
+                ["Magicka Recovery"] = 4,
+                ["Reduce Feat Cost"] = 5,
+                ["Stamina Recovery"] = 6,
+                ["Poison Resist"] = 7,
+                ["Flame Resist"] = 8,
+                ["Frost Resist"] = 9,
+                ["Shock Resist"] = 10,
+                ["Disease Resist"] = 11,
+                ["Potion Speed"] = 12,
+                ["Potion Boost"] = 13,
+                ["Decrease Physical Harm"] = 14,
+                ["Increase Physical Harm"] = 15,
+                ["Decrease Spell Harm"] = 16,
+                ["Increase Magical Harm"] = 17,
+                ["Shielding"] = 18,
+                ["Bashing"] = 19,
+                ["Reduce Skill Cost"] = 20,
+                ["Prismatic Recovery"] = 21
            }
             OogleCraftJewelryEnchantNecklaceDrop.dropdown:SetSelectedItem(choices[indexMap[enchantNecklace] or 1])
         else
@@ -420,9 +429,9 @@ local function createJewelryEnchantDropdown(oogleCraftDropdownFrameName, choices
     end
 
     function OogleCraft.ResetJewelryTraitSelection()
-        OogleCraftJewelryTraitRing1Drop.dropdown:SetSelectedItem(choices[1])
-        OogleCraftJewelryTraitRing2Drop.dropdown:SetSelectedItem(choices[1])
-        OogleCraftJewelryTraitNecklaceDrop.dropdown:SetSelectedItem(choices[1])
+        OogleCraftJewelryEnchantRing1Drop.dropdown:SetSelectedItem(choices[1])
+        OogleCraftJewelryEnchantRing2Drop.dropdown:SetSelectedItem(choices[1])
+        OogleCraftJewelryEnchantNecklaceDrop.dropdown:SetSelectedItem(choices[1])
     end
 end
 
@@ -447,7 +456,7 @@ end
 --- Jewelry Quality Choices ----------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftJewelrySetQualityChoices = {"[Jewelry Quality]", "White", "Green", "Blue", "Purple", "Yellow", "Orange"}
+local OogleCraftJewelrySetQualityChoices = {"[Jewelry Quality]", "White", "Green", "Blue", "Purple", "Yellow"}
 
 createJewelrySetQualityDropdown("JewelrySetQuality", OogleCraftJewelrySetQualityChoices, 640, 95, 240)
 
@@ -467,9 +476,9 @@ createJewelrySetNumberDropdown("SetNecklace", OogleCraftJewelrySetNecklaceChoice
 --- Jewelry Trait Choices ----------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftJewelryTraitRing1Choices = {"[Trait]", "Arcane", "Healthy", "Robust", "Triune", "Infused", "Protective", "Swift", "Harmony", "Bloodthirsty"}
-local OogleCraftJewelryTraitRing2Choices = {"[Trait]", "Arcane", "Healthy", "Robust", "Triune", "Infused", "Protective", "Swift", "Harmony", "Bloodthirsty"}
-local OogleCraftJewelryTraitNecklaceChoices = {"[Trait]", "Arcane", "Healthy", "Robust", "Triune", "Infused", "Protective", "Swift", "Harmony", "Bloodthirsty"}
+local OogleCraftJewelryTraitRing1Choices = {"[Trait]", "None", "Arcane", "Healthy", "Robust", "Triune", "Infused", "Protective", "Swift", "Harmony", "Bloodthirsty"}
+local OogleCraftJewelryTraitRing2Choices = {"[Trait]", "None", "Arcane", "Healthy", "Robust", "Triune", "Infused", "Protective", "Swift", "Harmony", "Bloodthirsty"}
+local OogleCraftJewelryTraitNecklaceChoices = {"[Trait]", "None", "Arcane", "Healthy", "Robust", "Triune", "Infused", "Protective", "Swift", "Harmony", "Bloodthirsty"}
 
 createJewelryTraitDropdown("TraitRing1", OogleCraftJewelryTraitRing1Choices, 640, 185, 80)
 createJewelryTraitDropdown("TraitRing2", OogleCraftJewelryTraitRing2Choices, 720, 185, 80)
@@ -479,7 +488,7 @@ createJewelryTraitDropdown("TraitNecklace", OogleCraftJewelryTraitNecklaceChoice
 --- Jewelry Enchant Quality ----------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftJewelryEnchantQualityChoices = {"[Jewelry Enchant Quality]", "White", "Green", "Blue", "Purple", "Yellow"}
+local OogleCraftJewelryEnchantQualityChoices = {"[Jewelry Enchant Quality]", "None", "White", "Green", "Blue", "Purple", "Yellow"}
 
 createJewelryEnchantQualityDropdown("JewelryEnchantQuality", OogleCraftJewelryEnchantQualityChoices, 640, 245, 240)
 
@@ -487,9 +496,9 @@ createJewelryEnchantQualityDropdown("JewelryEnchantQuality", OogleCraftJewelryEn
 --- Jewelry Enchant Choices --------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-local OogleCraftJewelryEnchantRing1Choices = {"[Ench.]", "None", "Health Recovery", "Reduce Spell Cost", "Magicka Recovery", "Reduce Feat Cost", "Stamina Recovery", "Poison Resist", "Flame Resist", "Frost Resist", "Shock Resist", "Disease Resist", "Potion Speed", "Potion Boost", "Decrease Physical Harm", "Increase Physical Harm", "Decrease Spell Harm", "Increase Magical Harm", "Shielding", "Bashing", "Reduce Skill Cost", "Prismatic Recovery"}
-local OogleCraftJewelryEnchantRing2Choices = {"[Ench.]", "None", "Health Recovery", "Reduce Spell Cost", "Magicka Recovery", "Reduce Feat Cost", "Stamina Recovery", "Poison Resist", "Flame Resist", "Frost Resist", "Shock Resist", "Disease Resist", "Potion Speed", "Potion Boost", "Decrease Physical Harm", "Increase Physical Harm", "Decrease Spell Harm", "Increase Magical Harm", "Shielding", "Bashing", "Reduce Skill Cost", "Prismatic Recovery"}
-local OogleCraftJewelryEnchantNecklaceChoices = {"[Ench.]", "None", "Health Recovery", "Reduce Spell Cost", "Magicka Recovery", "Reduce Feat Cost", "Stamina Recovery", "Poison Resist", "Flame Resist", "Frost Resist", "Shock Resist", "Disease Resist", "Potion Speed", "Potion Boost", "Decrease Physical Harm", "Increase Physical Harm", "Decrease Spell Harm", "Increase Magical Harm", "Shielding", "Bashing", "Reduce Skill Cost", "Prismatic Recovery"}
+local OogleCraftJewelryEnchantRing1Choices = {"[Ench.]", "Health Recovery", "Reduce Spell Cost", "Magicka Recovery", "Reduce Feat Cost", "Stamina Recovery", "Poison Resist", "Flame Resist", "Frost Resist", "Shock Resist", "Disease Resist", "Potion Speed", "Potion Boost", "Decrease Physical Harm", "Increase Physical Harm", "Decrease Spell Harm", "Increase Magical Harm", "Shielding", "Bashing", "Reduce Skill Cost", "Prismatic Recovery"}
+local OogleCraftJewelryEnchantRing2Choices = {"[Ench.]", "Health Recovery", "Reduce Spell Cost", "Magicka Recovery", "Reduce Feat Cost", "Stamina Recovery", "Poison Resist", "Flame Resist", "Frost Resist", "Shock Resist", "Disease Resist", "Potion Speed", "Potion Boost", "Decrease Physical Harm", "Increase Physical Harm", "Decrease Spell Harm", "Increase Magical Harm", "Shielding", "Bashing", "Reduce Skill Cost", "Prismatic Recovery"}
+local OogleCraftJewelryEnchantNecklaceChoices = {"[Ench.]", "Health Recovery", "Reduce Spell Cost", "Magicka Recovery", "Reduce Feat Cost", "Stamina Recovery", "Poison Resist", "Flame Resist", "Frost Resist", "Shock Resist", "Disease Resist", "Potion Speed", "Potion Boost", "Decrease Physical Harm", "Increase Physical Harm", "Decrease Spell Harm", "Increase Magical Harm", "Shielding", "Bashing", "Reduce Skill Cost", "Prismatic Recovery"}
 
 createJewelryEnchantDropdown("EnchantRing1", OogleCraftJewelryEnchantRing1Choices, 640, 275, 80)
 createJewelryEnchantDropdown("EnchantRing2", OogleCraftJewelryEnchantRing2Choices, 720, 275, 80)
